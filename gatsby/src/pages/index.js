@@ -1,7 +1,11 @@
 import React from "react";
 
-const IndexPage = () => {
-  return <div>Home page</div>;
+const HomePage = () => {
+  return (
+    <div>
+      <p> Home page!</p>
+    </div>
+  );
 };
 
-export default IndexPage;
+export default HomePage;
