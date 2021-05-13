@@ -1,0 +1,17 @@
+/* Main styles for Sanity Studio */
+@import url('https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Brand colors */
+  --brand-primary: #3b3863;
+  --brand-primary--inverted: #f5bfbf;
+  --brand-secondary: #b6f3d1;
+  --brand-secondary--inverted: #b4abf5;
+  /* Typography */
+  --font-family-sans-serif: 'Encode Sans Expanded', sans-serif;
+  --font-size-base: 18px;
+  --text-color: var(--brand-secondary--inverted);
+  /* Main Navigation */
+  --main-navigation-color: var(--brand-primary);
+  --main-navigation-color--inverted: #ffffff;
+}

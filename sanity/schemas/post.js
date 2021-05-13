@@ -45,6 +45,10 @@ export default {
             hotspot: true,
           },
         },
+        // allow user to add video to blog post
+        {
+          type: 'youtube',
+        },
       ],
     },
   ],
