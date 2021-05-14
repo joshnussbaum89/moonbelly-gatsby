@@ -51,5 +51,21 @@ export default {
         },
       ],
     },
+    {
+      name: 'tag',
+      title: 'Tags',
+      type: 'array',
+      description: 'Add tags to your post here',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {
+              type: 'tag',
+            },
+          ],
+        },
+      ],
+    },
   ],
 };
