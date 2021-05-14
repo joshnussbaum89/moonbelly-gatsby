@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaInstagram } from 'react-icons/fa';
-import { FaPinterest } from 'react-icons/fa';
-import { FaYoutube } from 'react-icons/fa';
+import { AiOutlineInstagram } from 'react-icons/ai';
+import { ImPinterest2 } from 'react-icons/im';
+import { AiOutlineYoutube } from 'react-icons/ai';
 import { Link } from 'gatsby';
 
 const NavStyles = styled.div`
@@ -43,9 +43,9 @@ const Nav = () => {
       <NavStyles>
         <nav>
           <div className='social-icons'>
-            <FaPinterest />
-            <FaYoutube />
-            <FaInstagram />
+            <ImPinterest2 />
+            <AiOutlineYoutube />
+            <AiOutlineInstagram />
           </div>
           <ul>
             <li>
