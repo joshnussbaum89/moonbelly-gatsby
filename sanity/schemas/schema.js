@@ -7,7 +7,6 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 import post from './post';
 import tag from './tag';
 import youtube from './youtube';
-import customTag from './customTag';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -20,6 +19,5 @@ export default createSchema({
     post,
     tag,
     youtube,
-    customTag,
   ]),
 });

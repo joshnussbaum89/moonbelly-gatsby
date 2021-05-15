@@ -10,12 +10,14 @@ export default {
       name: 'post',
       title: 'Post Title',
       type: 'string',
-      description: 'Name of the blog post',
+      description: 'Name of the blog post.',
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
+      description:
+        'A "slug" needs to be generated to sync up your comments and blog posts.',
       options: {
         source: 'post',
         maxLength: 100,
@@ -33,7 +35,7 @@ export default {
       name: 'text',
       title: 'Blog Post',
       type: 'array',
-      description: 'Enter your blog post here',
+      description: 'Enter your blog post here.',
       of: [
         {
           type: 'block',
@@ -55,7 +57,8 @@ export default {
       name: 'tag',
       title: 'Tags',
       type: 'array',
-      description: 'Add tags to your post here',
+      description:
+        'Add tags to your post here. You can add/edit tags and tag sub-categories in the "Tags" Content section :)',
       of: [
         {
           type: 'reference',

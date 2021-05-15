@@ -1,43 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { ImPinterest2 } from 'react-icons/im';
-import { AiOutlineYoutube } from 'react-icons/ai';
+import {
+  AiOutlineYoutube,
+  AiOutlineSearch,
+  AiOutlineMenu,
+} from 'react-icons/ai';
 import { Link } from 'gatsby';
 
 const NavStyles = styled.div`
   nav {
     margin: 1rem 0;
+    padding: 0.5rem 0;
+    height: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     font-size: var(--medium);
   }
-
+  /* Social Media Icons */
   .social-icons svg {
-    padding: 0 1.2rem;
+    padding-right: 2rem;
   }
 
+  /* Site navigation */
   ul {
-    display: flex;
-    flex-direction: row;
+    display: none;
   }
   ul > li {
+    align-self: center;
     list-style-type: none;
-    padding: 0 1.2rem;
+    padding-left: 2rem;
     transition: 0.2s;
   }
-  ul > li:hover {
+  ul > li:not(:last-child):hover {
     transform: translateY(-2px);
   }
   ul > li > a {
     color: var(--darkPurple);
     text-decoration: none;
   }
+
+  /* Mobile nav */
+  .hamburger {
+    display: block;
+  }
+
+  /* Search */
+  .search {
+    align-self: center;
+    display: flex;
+  }
+  .search-icon {
+    align-self: center;
+    cursor: pointer;
+  }
+  .search-input {
+    margin-left: 2rem;
+    padding: 0.4rem;
+    width: 10rem;
+    border: 1px solid var(--darkPurple);
+    border-radius: 2px;
+    font-size: var(--small);
+    color: var(--darkPurple);
+  }
+
+  /* Medium screens */
+  @media (min-width: 768px) {
+    ul {
+      display: flex;
+      flex-direction: row;
+    }
+    .hamburger {
+      display: none;
+    }
+  }
 `;
 
 const Nav = () => {
+  const [search, toggleSearch] = useState(false);
+  console.log(search);
   return (
     <>
       <NavStyles>
@@ -60,7 +104,21 @@ const Nav = () => {
             <li>
               <Link to='/contact'>Contact</Link>
             </li>
+            <li className='search'>
+              <AiOutlineSearch
+                className='search-icon'
+                onClick={() => toggleSearch(!search)}
+              />
+              <input
+                className='search-input'
+                type='text'
+                style={{ display: `${search === false ? 'none' : 'flex'}` }}
+                placeholder='Search'
+              />
+            </li>
           </ul>
+          {/* TODO: Add mobile nav modal container onClick*/}
+          <AiOutlineMenu className='hamburger' />
         </nav>
       </NavStyles>
     </>

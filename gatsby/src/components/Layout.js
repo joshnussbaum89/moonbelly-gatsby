@@ -1,6 +1,6 @@
 import React from 'react';
 import 'normalize.css';
-import Hero from '../components/Hero';
+import Nav from '../components/Nav';
 import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';
 import Footer from '../components/Footer';
@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     <div>
       <GlobalStyles />
       <Typography />
-      <Hero />
+      <Nav />
       {children}
       <Footer />
     </div>
