@@ -81,7 +81,7 @@ const NavStyles = styled.div`
 
 const Nav = () => {
   const [search, toggleSearch] = useState(false);
-  console.log(search);
+
   return (
     <>
       <NavStyles>

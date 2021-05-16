@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
         --medium: 1.25rem;
         --large: 2rem;
         --extraLarge: 6rem;
+        ${'' /* TODO: add screen width variables */}
     }
 
     html {

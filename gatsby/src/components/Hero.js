@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const HeroStyles = styled.div`
   /* Main hero styles */
-  height: 90vh;
+  height: 95vh;
 
   .hero {
     height: 100%;
