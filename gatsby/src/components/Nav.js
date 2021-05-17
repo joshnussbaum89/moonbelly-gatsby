@@ -40,7 +40,11 @@ const NavStyles = styled.div`
   }
   ul > li > a {
     color: var(--darkPurple);
+    transition: 0.2s;
     text-decoration: none;
+  }
+  ul > li > a:hover {
+    color: var(--purple);
   }
 
   /* Mobile nav */
