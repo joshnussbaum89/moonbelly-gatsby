@@ -73,6 +73,9 @@ const NavStyles = styled.div`
 
   /* Medium screens */
   @media (min-width: 768px) {
+    nav {
+      margin: 1rem 2rem;
+    }
     ul {
       display: flex;
       flex-direction: row;

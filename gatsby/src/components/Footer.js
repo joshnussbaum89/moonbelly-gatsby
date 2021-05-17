@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const FooterStyles = styled.div`
   padding: 4rem 0;
-  border-top: 1px solid var(--mint);
+  border-top: 1px dashed var(--mint);
 `;
 
 const Footer = () => {

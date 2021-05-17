@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: 'Moonbelly Makes',
+    siteUrl: 'https://moonbellymakes.com',
+    description: 'A Recipe and DIY blog from Katrina Atkin',
   },
   plugins: [
     {
@@ -8,6 +10,8 @@ module.exports = {
       options: {
         projectId: 'ubyb73h6',
         dataset: 'production',
+        watchMode: true,
+        token: process.env.SANITY_TOKEN,
       },
     },
     'gatsby-plugin-styled-components',

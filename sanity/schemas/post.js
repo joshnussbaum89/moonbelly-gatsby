@@ -7,7 +7,7 @@ export default {
   icon,
   fields: [
     {
-      name: 'post',
+      name: 'title',
       title: 'Post Title',
       type: 'string',
       description: 'Name of the blog post.',
@@ -19,8 +19,24 @@ export default {
       description:
         'A "slug" needs to be generated to sync up your comments and blog posts.',
       options: {
-        source: 'post',
+        source: 'title',
         maxLength: 100,
+      },
+    },
+    {
+      name: 'diy',
+      title: 'DIY',
+      type: 'boolean',
+      options: {
+        layout: 'checkbox',
+      },
+    },
+    {
+      name: 'recipe',
+      title: 'Recipe',
+      type: 'boolean',
+      options: {
+        layout: 'checkbox',
       },
     },
     {

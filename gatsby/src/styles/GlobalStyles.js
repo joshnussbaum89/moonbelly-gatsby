@@ -25,7 +25,9 @@ const GlobalStyles = createGlobalStyle`
         margin: 0 1rem;
         color: var(--darkPurple);
     }
-
+    a {
+        color: var(--darkPurple);
+    }
     h1, h2, h3, h4, ul {
         margin: 0;
         padding: 0;
@@ -33,7 +35,7 @@ const GlobalStyles = createGlobalStyle`
 
     @media (min-width: 768px) {
         body {
-            margin: 0 2rem;
+            margin: 0;
         }
     }
 `;

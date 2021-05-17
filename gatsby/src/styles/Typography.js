@@ -8,8 +8,12 @@ const Typography = createGlobalStyle`
         font-weight: 100;
     }
     
-    h1 {
+    h1, h2, h3 {
+        color: var(--darkPurple);
         font-weight: 200;
+    }
+    a {
+        text-decoration: none;
     }
 `;
 

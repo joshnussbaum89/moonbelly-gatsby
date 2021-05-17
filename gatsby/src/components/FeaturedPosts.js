@@ -1,11 +1,10 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
-import featuredRecipe from '../assets/images/featured-recipe.jpg';
-import featuredDiy from '../assets/images/featured-diy.jpg';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const FeaturedStyles = styled.div`
   h2 {
-    text-align: center;
     font-size: var(--large);
     font-weight: 100;
     margin: 1rem 0;
@@ -13,7 +12,7 @@ const FeaturedStyles = styled.div`
   .featured {
     border-top: 1px dashed var(--mint);
     margin: 2rem 0;
-    padding: 4rem 0;
+    padding: 5rem 0 3rem;
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -27,35 +26,43 @@ const FeaturedStyles = styled.div`
       flex-direction: row;
     }
     .featured-img {
-      width: 95%;
+      width: 100%;
       margin: auto;
       display: block;
     }
   }
 `;
 
-const FeaturedPosts = () => {
+const FeaturedPosts = ({ posts, mostRecentRecipe, mostRecentDiy }) => {
+  console.log(posts);
+  const recipeImage = getImage(mostRecentRecipe.cover.asset.gatsbyImageData);
+  const diyImage = getImage(mostRecentDiy.cover.asset.gatsbyImageData);
+
   return (
     <>
       <FeaturedStyles>
         <div className='featured'>
-          <div className='featured-img'>
-            <h2>Recipes</h2>
-            <img
-              className='featured-img'
-              src={featuredRecipe}
-              placeholder='blurred'
-              alt='Featured recipe'
-            />
+          <div>
+            <Link to={`recipes/${mostRecentRecipe.slug.current}`}>
+              <GatsbyImage className='featured-img' image={recipeImage} />
+            </Link>
+            <h2>{mostRecentRecipe.title}</h2>
+            <p>
+              Here is a description...{' '}
+              <Link to={`recipes/${mostRecentRecipe.slug.current}`}>
+                Read More
+              </Link>
+            </p>
           </div>
-          <div className='featured-img'>
-            <h2>DIYs</h2>
-            <img
-              className='featured-img'
-              src={featuredRecipe}
-              placeholder='blurred'
-              alt='Featured recipe'
-            />
+          <div>
+            <Link to={`diy/${mostRecentDiy.slug.current}`}>
+              <GatsbyImage className='featured-img' image={diyImage} />
+            </Link>
+            <h2>{mostRecentDiy.title}</h2>
+            <p>
+              Here is a description...{' '}
+              <Link to={`diy/${mostRecentDiy.slug.current}`}>Read More</Link>
+            </p>
           </div>
         </div>
       </FeaturedStyles>
