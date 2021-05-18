@@ -34,7 +34,6 @@ const FeaturedStyles = styled.div`
 `;
 
 const FeaturedPosts = ({ posts, mostRecentRecipe, mostRecentDiy }) => {
-  console.log(posts);
   const recipeImage = getImage(mostRecentRecipe.cover.asset.gatsbyImageData);
   const diyImage = getImage(mostRecentDiy.cover.asset.gatsbyImageData);
 
