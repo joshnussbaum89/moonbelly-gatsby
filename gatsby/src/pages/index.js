@@ -2,6 +2,7 @@ import React from 'react';
 import FeaturedPosts from '../components/FeaturedPosts';
 import Hero from '../components/Hero';
 import { graphql } from 'gatsby';
+import Philosophy from '../components/Philosophy';
 
 const HomePage = ({ data }) => {
   const posts = data.posts.nodes;
@@ -15,6 +16,7 @@ const HomePage = ({ data }) => {
         mostRecentRecipe={mostRecentRecipe}
         mostRecentDiy={mostRecentDiy}
       />
+      <Philosophy />
     </div>
   );
 };
