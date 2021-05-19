@@ -3,7 +3,7 @@ import React from 'react';
 const AboutBlobSvgTwo = () => {
   return (
     <svg
-      className='blob-about-desc'
+      className='about-blob-purple'
       viewBox='0 0 350 350'
       xmlns='http://www.w3.org/2000/svg'
     >

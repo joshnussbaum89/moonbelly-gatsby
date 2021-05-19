@@ -5,8 +5,6 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const FeaturedStyles = styled.div`
   h2 {
-    font-size: var(--large);
-    font-weight: 100;
     margin: 1rem 0;
   }
   .featured {
@@ -42,9 +40,6 @@ const FeaturedPosts = ({ posts, mostRecentRecipe, mostRecentDiy }) => {
       <FeaturedStyles>
         <div className='featured'>
           <div>
-            <Link to={`recipes/${mostRecentRecipe.slug.current}`}>
-              <GatsbyImage className='featured-img' image={recipeImage} />
-            </Link>
             <h2>{mostRecentRecipe.title}</h2>
             <p>
               Here is a description...{' '}
@@ -52,16 +47,19 @@ const FeaturedPosts = ({ posts, mostRecentRecipe, mostRecentDiy }) => {
                 Read More
               </Link>
             </p>
+            <Link to={`recipes/${mostRecentRecipe.slug.current}`}>
+              <GatsbyImage className='featured-img' image={recipeImage} />
+            </Link>
           </div>
           <div>
-            <Link to={`diy/${mostRecentDiy.slug.current}`}>
-              <GatsbyImage className='featured-img' image={diyImage} />
-            </Link>
             <h2>{mostRecentDiy.title}</h2>
             <p>
               Here is a description...{' '}
               <Link to={`diy/${mostRecentDiy.slug.current}`}>Read More</Link>
             </p>
+            <Link to={`diy/${mostRecentDiy.slug.current}`}>
+              <GatsbyImage className='featured-img' image={diyImage} />
+            </Link>
           </div>
         </div>
       </FeaturedStyles>

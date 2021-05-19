@@ -3,7 +3,7 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { ImPinterest2 } from 'react-icons/im';
 import { AiOutlineYoutube } from 'react-icons/ai';
 import styled from 'styled-components';
-import FooterWaveSvg from './FooterWaveSvg';
+import FooterWaveSvg from './svgs/FooterWaveSvg';
 
 const FooterStyles = styled.div`
   margin: 8rem -1rem 0;

@@ -1,7 +1,7 @@
 import React from "react";
 
 const diy = () => {
-  return <div>DIYs</div>;
+  return <h2>DIYs</h2>;
 };
 
 export default diy;

@@ -9,7 +9,7 @@ const HomePage = ({ data }) => {
   const mostRecentRecipe = posts.filter((post) => post.recipe === true)[0];
   const mostRecentDiy = posts.filter((post) => post.diy === true)[0];
   return (
-    <div>
+    <>
       <Hero />
       <FeaturedPosts
         posts={posts}
@@ -17,7 +17,7 @@ const HomePage = ({ data }) => {
         mostRecentDiy={mostRecentDiy}
       />
       <Philosophy />
-    </div>
+    </>
   );
 };
 

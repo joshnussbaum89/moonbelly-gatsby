@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AboutBlobSvg = () => {
+const AboutBlobSvgOne = () => {
   return (
     <svg
-      className='blob-about-pic'
+      className='about-blob-green'
       viewBox='0 0 350 350'
       xmlns='http://www.w3.org/2000/svg'
     >
@@ -15,4 +15,4 @@ const AboutBlobSvg = () => {
   );
 };
 
-export default AboutBlobSvg;
+export default AboutBlobSvgOne;
