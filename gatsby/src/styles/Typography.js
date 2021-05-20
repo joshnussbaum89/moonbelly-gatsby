@@ -20,6 +20,7 @@ const Typography = createGlobalStyle`
     }
     
     a {
+        transition: .2s;
         text-decoration: none;
     }
 `;

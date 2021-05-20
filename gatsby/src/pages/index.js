@@ -2,7 +2,7 @@ import React from 'react';
 import FeaturedPosts from '../components/FeaturedPosts';
 import Hero from '../components/Hero';
 import { graphql } from 'gatsby';
-import Philosophy from '../components/Philosophy';
+import Mission from '../components/Mission';
 
 const HomePage = ({ data }) => {
   const posts = data.posts.nodes;
@@ -10,13 +10,13 @@ const HomePage = ({ data }) => {
   const mostRecentDiy = posts.filter((post) => post.diy === true)[0];
   return (
     <>
-      <Hero />
+      <Hero id='top' />
       <FeaturedPosts
         posts={posts}
         mostRecentRecipe={mostRecentRecipe}
         mostRecentDiy={mostRecentDiy}
       />
-      <Philosophy />
+      <Mission />
     </>
   );
 };

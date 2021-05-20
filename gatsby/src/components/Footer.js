@@ -10,6 +10,10 @@ const FooterStyles = styled.div`
   padding: 1rem;
   position: relative;
 
+  a:hover {
+    opacity: 0.8;
+  }
+
   .waves {
     position: absolute;
     z-index: -1;
@@ -20,6 +24,7 @@ const FooterStyles = styled.div`
   }
   .footer-icon {
     padding: 0 1rem;
+    cursor: pointer;
   }
 
   @media (min-width: 768px) {
@@ -36,16 +41,29 @@ const Footer = () => {
     <footer>
       <FooterStyles>
         <div>
-          <ImPinterest2 className='footer-icon' />
-          <AiOutlineYoutube className='footer-icon' />
-          <AiOutlineInstagram className='footer-icon' />
+          <a href='#'>
+            <ImPinterest2 size='1.5rem' className='footer-icon' />
+          </a>
+          <a href='#'>
+            <AiOutlineYoutube size='1.5rem' className='footer-icon' />
+          </a>
+          <a href='#'>
+            <AiOutlineInstagram size='1.5rem' className='footer-icon' />
+          </a>
         </div>
         <div>
-          <p>♡ Made with care by Josh Nussbaum </p>
+          <p>
+            ♡ Made with care by{' '}
+            <a href='https://joshnussbaum.io/' target='_blank'>
+              Josh Nussbaum{' '}
+            </a>
+          </p>
           <p>Copyright Moonbelly Makes {new Date().getFullYear()}</p>
         </div>
         <div>
-          <p>back to top</p>
+          <p>
+            <a href='#top'>back to top</a>
+          </p>
         </div>
         <FooterWaveSvg />
       </FooterStyles>

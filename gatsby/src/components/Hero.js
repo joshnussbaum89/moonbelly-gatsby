@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LilyHome from './svgs/LilyHome';
 
 const HeroStyles = styled.div`
   /* Main hero styles */
@@ -21,7 +22,8 @@ const HeroStyles = styled.div`
     text-shadow: 1px 1px 0 black;
   }
   .hero p:first-child {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
   }
   .hero .hero-moonbelly {
     text-transform: lowercase;
@@ -48,30 +50,44 @@ const HeroStyles = styled.div`
     width: 80%;
     bottom: 2rem;
   }
-  .hero-subscribe > input {
+  .hero-subscribe input {
     font-size: var(--small);
     margin: 0.6rem;
     border-radius: 2px;
   }
   .hero-subscribe > input[type='name'],
   .hero-subscribe > input[type='email'] {
-    border: 1px solid var(--mint);
+    border: 1px solid var(--purple);
     color: var(--darkPurple);
     padding: 0.5rem;
   }
   /* Submit button */
-  .hero-subscribe > input[type='button'] {
+  .button-and-lily > input[type='button'] {
     background: var(--purple);
     border: none;
     color: var(--darkPurple);
     padding: 0.5rem 1rem;
+    transition: 0.1s;
     cursor: pointer;
   }
-  .hero-subscribe > input[type='button']:hover {
+  .button-and-lily > input[type='button']:hover {
     transform: scale(1.02);
   }
-  .hero-subscribe > input[type='button']:active {
+  .button-and-lily > input[type='button']:active {
     transform: scale(1);
+  }
+  .button-and-lily {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .lily-home {
+    position: absolute;
+    z-index: -1;
+    opacity: 0.6;
+    width: 350px;
+    bottom: -58px;
+    left: -103px;
   }
 
   @media (min-width: 768px) {
@@ -99,7 +115,10 @@ const Hero = () => {
           <div className='hero-subscribe'>
             <input type='name' placeholder='Your Name' />
             <input type='email' placeholder='Email Address' />
-            <input type='button' value='Submit' />
+            <div className='button-and-lily'>
+              <input type='button' value='Submit' />
+              <LilyHome />
+            </div>
           </div>
         </div>
       </HeroStyles>

@@ -24,6 +24,9 @@ const NavStyles = styled.div`
   .social-icons svg {
     padding-right: 2rem;
   }
+  .social-icons a:hover {
+    color: var(--purple);
+  }
 
   /* Site navigation */
   ul {
@@ -43,12 +46,17 @@ const NavStyles = styled.div`
     transition: 0.2s;
     text-decoration: none;
   }
+  .social-icons a:hover,
+  .hamburger:hover,
+  .search-icon:hover,
   ul > li > a:hover {
     color: var(--purple);
   }
 
   /* Mobile nav */
   .hamburger {
+    cursor: pointer;
+    transition: 0.2s;
     display: block;
   }
 
@@ -59,6 +67,7 @@ const NavStyles = styled.div`
   }
   .search-icon {
     align-self: center;
+    transition: 0.2s;
     cursor: pointer;
   }
   .search-input {
@@ -94,9 +103,15 @@ const Nav = () => {
       <NavStyles>
         <nav>
           <div className='social-icons'>
-            <ImPinterest2 />
-            <AiOutlineYoutube />
-            <AiOutlineInstagram />
+            <a href='#'>
+              <ImPinterest2 size='1.5rem' />
+            </a>
+            <a href='#'>
+              <AiOutlineYoutube size='1.5rem' />
+            </a>
+            <a href='#'>
+              <AiOutlineInstagram size='1.5rem' />
+            </a>
           </div>
           <ul>
             <li>
@@ -113,6 +128,7 @@ const Nav = () => {
             </li>
             <li className='search'>
               <AiOutlineSearch
+                size='1.5rem'
                 className='search-icon'
                 onClick={() => toggleSearch(!search)}
               />
@@ -125,7 +141,7 @@ const Nav = () => {
             </li>
           </ul>
           {/* TODO: Add mobile nav modal container onClick*/}
-          <AiOutlineMenu className='hamburger' />
+          <AiOutlineMenu className='hamburger' size='1.75rem' />
         </nav>
       </NavStyles>
     </>
