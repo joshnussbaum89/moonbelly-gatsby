@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { ImPinterest2 } from 'react-icons/im';
 import {
@@ -8,6 +7,7 @@ import {
   AiOutlineMenu,
 } from 'react-icons/ai';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
 
 const NavStyles = styled.div`
   nav {

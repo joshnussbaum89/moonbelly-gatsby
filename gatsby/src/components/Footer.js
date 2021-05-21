@@ -3,6 +3,8 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { ImPinterest2 } from 'react-icons/im';
 import { AiOutlineYoutube } from 'react-icons/ai';
 import styled from 'styled-components';
+
+// Components
 import FooterWaveSvg from './svgs/FooterWaveSvg';
 
 const FooterStyles = styled.div`
@@ -20,7 +22,6 @@ const FooterStyles = styled.div`
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 540px;
   }
   .footer-icon {
     padding: 0 1rem;

@@ -1,8 +1,11 @@
 import React from 'react';
+import { graphql } from 'gatsby';
+
+// Components
 import FeaturedPosts from '../components/FeaturedPosts';
 import Hero from '../components/Hero';
-import { graphql } from 'gatsby';
 import Mission from '../components/Mission';
+import Instagram from '../components/Instagram';
 
 const HomePage = ({ data }) => {
   const posts = data.posts.nodes;
@@ -17,6 +20,7 @@ const HomePage = ({ data }) => {
         mostRecentDiy={mostRecentDiy}
       />
       <Mission />
+      <Instagram />
     </>
   );
 };
@@ -33,7 +37,11 @@ export const query = graphql`
         }
         cover {
           asset {
-            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+            gatsbyImageData(
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              width: 2500
+            )
           }
         }
       }
