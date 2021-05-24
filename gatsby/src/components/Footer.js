@@ -55,7 +55,7 @@ const Footer = () => {
         <div>
           <p>
             ♡ Made with care by{' '}
-            <a href='https://joshnussbaum.io/' target='_blank'>
+            <a href='https://joshnussbaum.io/' target='_blank' rel='noreferrer'>
               Josh Nussbaum{' '}
             </a>
           </p>

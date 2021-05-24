@@ -31,7 +31,7 @@ const FeaturedStyles = styled.div`
   }
 `;
 
-const FeaturedPosts = ({ posts, mostRecentRecipe, mostRecentDiy }) => {
+const FeaturedPosts = ({ mostRecentRecipe, mostRecentDiy }) => {
   const recipeImage = getImage(mostRecentRecipe.cover.asset.gatsbyImageData);
   const diyImage = getImage(mostRecentDiy.cover.asset.gatsbyImageData);
 
