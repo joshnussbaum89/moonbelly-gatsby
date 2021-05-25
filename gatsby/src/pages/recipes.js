@@ -20,20 +20,17 @@ const RecipeContainer = styled.div`
     margin: auto;
     display: block;
   }
-  .tag-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .tag-names {
+  .tag-name {
+    display: inline-block;
     cursor: pointer;
     text-align: center;
     border: 1px solid var(--darkPurple);
-    border-radius: 5px;
-    padding: 0.3rem;
+    border-radius: 20px;
+    padding: 0.6rem;
     margin: 0.2rem;
     transition: 0.2s;
   }
-  .tag-names:hover {
+  .tag-name:hover {
     background: var(--darkPurple);
     color: var(--cream);
   }
@@ -66,8 +63,8 @@ const SingleRecipe = ({ recipe, text }) => {
     </>
   );
 };
-const SingleTag = ({ tags }) => {
-  return <p className='tag-names'>{tags}</p>;
+const SingleTag = ({ tag }) => {
+  return <li className='tag-name'>{tag}</li>;
 };
 
 const Recipes = ({ data }) => {
@@ -97,11 +94,11 @@ const Recipes = ({ data }) => {
       </div>
       <div className='tags'>
         <h2>Categories</h2>
-        <div className='tag-container'>
+        <ul>
           {uniqueTags.map((tag) => (
-            <SingleTag tags={tag} />
+            <SingleTag tag={tag} />
           ))}
-        </div>
+        </ul>
       </div>
     </RecipeContainer>
   );
