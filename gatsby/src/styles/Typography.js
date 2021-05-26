@@ -1,18 +1,28 @@
 import { createGlobalStyle } from 'styled-components';
+import berkshireFont from '../assets/fonts/Berkshire_Swash/BerkshireSwash-Regular.ttf';
+import libreFont from '../assets/fonts/Libre_Franklin/LibreFranklin-VariableFont_wght.ttf';
 
 const Typography = createGlobalStyle`
-    ${'' /* change this font */}
-    @import url('https://fonts.googleapis.com/css2?family=Elsie:wght@400;900&family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&display=swap');
+    ${'' /* Berkshire */}
+    @font-face {
+        font-family: Berkshire;
+        src: url(${berkshireFont});
+    }
+    ${'' /* Libre Franklin */}
+    @font-face {
+        font-family: LibreFranklin;
+        src: url(${libreFont});
+    } 
+    
 
-    html {
-        font-family: 'Encode Sans Expanded', sans-serif;
-        font-weight: 100;
+    body {
+        font-family: LibreFranklin;
+        font-weight: 300;
     }
 
     h1, h2, h3 {
         color: var(--darkPurple);
-        ${'' /* change this font */}
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-family: BerkShire;
     }
 
     h2 {

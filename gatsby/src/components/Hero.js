@@ -24,7 +24,7 @@ const HeroStyles = styled.div`
     text-shadow: 1px 1px 0 black;
   }
   .hero p:first-child {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Berkshire;
     font-weight: 600;
   }
   .hero .hero-moonbelly {
