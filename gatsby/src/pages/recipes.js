@@ -9,7 +9,7 @@ const RecipeContainer = styled.div`
   gap: 4rem;
 
   .recipes h2,
-  .tags h2 {
+  .recipe-tags h2 {
     margin: 2rem 0;
   }
   .recipes h3 {
@@ -40,12 +40,12 @@ const RecipeContainer = styled.div`
     grid-template-rows: 1fr;
     grid-template-columns: 2fr 1fr;
 
-    .tags {
+    .recipe-tags {
       padding-left: 3rem;
       border-left: 1px dashed var(--mint);
     }
     .recipes,
-    .tags {
+    .recipe-tags {
       margin: 2rem 0 8rem;
     }
   }
@@ -63,7 +63,7 @@ const SingleRecipe = ({ recipe, text }) => {
     </>
   );
 };
-const SingleTag = ({ tag }) => {
+const SingleRecipeTag = ({ tag }) => {
   return <li className='tag-name'>{tag}</li>;
 };
 
@@ -92,11 +92,11 @@ const Recipes = ({ data }) => {
           />
         ))}
       </div>
-      <div className='tags'>
+      <div className='recipe-tags'>
         <h2>Categories</h2>
         <ul>
           {uniqueTags.map((tag) => (
-            <SingleTag tag={tag} />
+            <SingleRecipeTag tag={tag} />
           ))}
         </ul>
       </div>
