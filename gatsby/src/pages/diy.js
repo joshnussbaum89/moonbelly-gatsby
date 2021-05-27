@@ -59,7 +59,7 @@ const SingleDiy = ({ diy, text }) => {
     <>
       <h3>{diy.title}</h3>
       <p>{textTeaser}</p>
-      <GatsbyImage className='diy-img' image={image} />
+      <GatsbyImage className='diy-img' image={image} alt={diy.title} />
     </>
   );
 };
@@ -80,20 +80,25 @@ const diy = ({ data }) => {
     );
   // remove duplicate tags
   const uniqueTags = [...new Set(tags)];
+  console.log(tags);
 
   return (
     <DiyContainer>
       <div className='diys'>
         <h2>Moonbelly Makes ~ Diys</h2>
         {diys.map((diy) => (
-          <SingleDiy diy={diy} text={diy.text[0].children[0].text} />
+          <SingleDiy
+            diy={diy}
+            text={diy.text[0].children[0].text}
+            key={diy.id}
+          />
         ))}
       </div>
       <div className='diy-tags'>
         <h2>Categories</h2>
         <ul>
-          {uniqueTags.map((tag) => (
-            <SingleDiyTag tag={tag} />
+          {uniqueTags.map((tag, index) => (
+            <SingleDiyTag tag={tag} key={index} />
           ))}
         </ul>
       </div>
@@ -105,6 +110,7 @@ export const query = graphql`
   query DiyQuery {
     posts: allSanityPost(sort: { order: DESC, fields: _createdAt }) {
       nodes {
+        id
         diy
         title
         slug {

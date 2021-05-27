@@ -48,7 +48,11 @@ const FeaturedPosts = ({ mostRecentRecipe, mostRecentDiy }) => {
               </Link>
             </p>
             <Link to={`recipes/${mostRecentRecipe.slug.current}`}>
-              <GatsbyImage className='featured-img' image={recipeImage} />
+              <GatsbyImage
+                className='featured-img'
+                image={recipeImage}
+                alt={mostRecentRecipe.title}
+              />
             </Link>
           </div>
           <div>
@@ -58,7 +62,11 @@ const FeaturedPosts = ({ mostRecentRecipe, mostRecentDiy }) => {
               <Link to={`diy/${mostRecentDiy.slug.current}`}>Read More</Link>
             </p>
             <Link to={`diy/${mostRecentDiy.slug.current}`}>
-              <GatsbyImage className='featured-img' image={diyImage} />
+              <GatsbyImage
+                className='featured-img'
+                image={diyImage}
+                alt={mostRecentDiy}
+              />
             </Link>
           </div>
         </div>

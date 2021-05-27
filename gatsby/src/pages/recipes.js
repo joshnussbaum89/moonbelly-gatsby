@@ -59,7 +59,7 @@ const SingleRecipe = ({ recipe, text }) => {
     <>
       <h3>{recipe.title}</h3>
       <p>{textTeaser}</p>
-      <GatsbyImage className='recipe-img' image={image} />
+      <GatsbyImage className='recipe-img' image={image} alt={recipe.title} />
     </>
   );
 };
@@ -89,14 +89,15 @@ const Recipes = ({ data }) => {
           <SingleRecipe
             recipe={recipe}
             text={recipe.text[0].children[0].text}
+            key={recipe.id}
           />
         ))}
       </div>
       <div className='recipe-tags'>
         <h2>Categories</h2>
         <ul>
-          {uniqueTags.map((tag) => (
-            <SingleRecipeTag tag={tag} />
+          {uniqueTags.map((tag, index) => (
+            <SingleRecipeTag tag={tag} key={index} />
           ))}
         </ul>
       </div>
@@ -108,6 +109,7 @@ export const query = graphql`
   query RecipesQuery {
     posts: allSanityPost(sort: { order: DESC, fields: _createdAt }) {
       nodes {
+        id
         recipe
         title
         slug {
