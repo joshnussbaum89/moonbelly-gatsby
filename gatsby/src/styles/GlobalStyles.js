@@ -15,6 +15,9 @@ const GlobalStyles = createGlobalStyle`
         --medium: 1.25rem;
         --large: 2rem;
         --extraLarge: 6rem;
+        --variablePostTitle: clamp(2rem, 6rem, 10vw);
+        ${'' /* shadows */}
+        --headerShadow: 1px 1px 0 black;
         ${'' /* TODO: add screen width variables */}
     }
 
@@ -30,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
     a {
         color: var(--darkPurple);
     }
-    h1, h2, h3, h4, ul {
+    ul {
         margin: 0;
         padding: 0;
     }

@@ -34,6 +34,8 @@ const FeaturedStyles = styled.div`
 const FeaturedPosts = ({ mostRecentRecipe, mostRecentDiy }) => {
   const recipeImage = getImage(mostRecentRecipe.cover.asset.gatsbyImageData);
   const diyImage = getImage(mostRecentDiy.cover.asset.gatsbyImageData);
+  const recipeTextTeaser = mostRecentRecipe.text[0].children[0].text;
+  const diyTextTeaser = mostRecentDiy.text[0].children[0].text;
 
   return (
     <>
@@ -42,12 +44,12 @@ const FeaturedPosts = ({ mostRecentRecipe, mostRecentDiy }) => {
           <div>
             <h2>{mostRecentRecipe.title}</h2>
             <p>
-              Here is a description...{' '}
-              <Link to={`recipes/${mostRecentRecipe.slug.current}`}>
-                Read More
+              {recipeTextTeaser}
+              <Link to={`/post/${mostRecentRecipe.slug.current}`}>
+                <strong>... Read More</strong>
               </Link>
             </p>
-            <Link to={`recipes/${mostRecentRecipe.slug.current}`}>
+            <Link to={`post/${mostRecentRecipe.slug.current}`}>
               <GatsbyImage
                 className='featured-img'
                 image={recipeImage}
@@ -58,10 +60,12 @@ const FeaturedPosts = ({ mostRecentRecipe, mostRecentDiy }) => {
           <div>
             <h2>{mostRecentDiy.title}</h2>
             <p>
-              Here is a description...{' '}
-              <Link to={`diy/${mostRecentDiy.slug.current}`}>Read More</Link>
+              {diyTextTeaser}
+              <Link to={`/post/${mostRecentDiy.slug.current}`}>
+                <strong>... Read More</strong>
+              </Link>
             </p>
-            <Link to={`diy/${mostRecentDiy.slug.current}`}>
+            <Link to={`post/${mostRecentDiy.slug.current}`}>
               <GatsbyImage
                 className='featured-img'
                 image={diyImage}

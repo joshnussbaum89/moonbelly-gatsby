@@ -36,6 +36,11 @@ export const query = graphql`
         slug {
           current
         }
+        text {
+          children {
+            text
+          }
+        }
         cover {
           asset {
             gatsbyImageData(

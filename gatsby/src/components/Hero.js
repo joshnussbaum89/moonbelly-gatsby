@@ -21,7 +21,7 @@ const HeroStyles = styled.div`
     margin: 0;
     padding: 0;
     font-size: clamp(4rem, 6rem, 10vw);
-    text-shadow: 1px 1px 0 black;
+    text-shadow: var(--headerShadow);
   }
   .hero p:first-child {
     font-family: Berkshire;

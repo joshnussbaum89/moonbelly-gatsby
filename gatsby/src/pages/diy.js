@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
+import SingleTag from '../components/SingleTag';
 
 const DiyContainer = styled.div`
   display: grid;
@@ -19,20 +20,6 @@ const DiyContainer = styled.div`
     width: 100%;
     margin: auto;
     display: block;
-  }
-  .tag-name {
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    border: 1px solid var(--darkPurple);
-    border-radius: 20px;
-    padding: 0.6rem;
-    margin: 0.2rem;
-    transition: 0.2s;
-  }
-  .tag-name:hover {
-    background: var(--darkPurple);
-    color: var(--cream);
   }
 
   @media (min-width: 768px) {
@@ -53,18 +40,22 @@ const DiyContainer = styled.div`
 
 const SingleDiy = ({ diy, text }) => {
   const image = getImage(diy.cover.asset.gatsbyImageData);
-  const textTeaser = `${text.substring(0, 40)}... Read More`;
+  const textTeaser = `${text.substring(0, 40)}`;
 
   return (
     <>
       <h3>{diy.title}</h3>
-      <p>{textTeaser}</p>
-      <GatsbyImage className='diy-img' image={image} alt={diy.title} />
+      <p>
+        {textTeaser}
+        <Link to={`/post/${diy.slug.current}`}>
+          <strong>... Read More</strong>
+        </Link>
+      </p>
+      <Link to={`/post/${diy.slug.current}`}>
+        <GatsbyImage className='diy-img' image={image} alt={diy.title} />
+      </Link>
     </>
   );
-};
-const SingleDiyTag = ({ tag }) => {
-  return <li className='tag-name'>{tag}</li>;
 };
 
 const diy = ({ data }) => {
@@ -80,7 +71,6 @@ const diy = ({ data }) => {
     );
   // remove duplicate tags
   const uniqueTags = [...new Set(tags)];
-  console.log(tags);
 
   return (
     <DiyContainer>
@@ -98,7 +88,7 @@ const diy = ({ data }) => {
         <h2>Categories</h2>
         <ul>
           {uniqueTags.map((tag, index) => (
-            <SingleDiyTag tag={tag} key={index} />
+            <SingleTag tag={tag} key={index} />
           ))}
         </ul>
       </div>
