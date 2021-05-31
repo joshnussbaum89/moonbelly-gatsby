@@ -28,7 +28,7 @@ const PostStyles = styled.div`
   }
 `;
 
-export default function SinglePostPage({ data: { posts }, sanityTag }) {
+export default function SinglePostPage({ data: { posts } }) {
   const image = getImage(posts.cover.asset.gatsbyImageData);
   const postText = posts.text[0].children[0].text;
   const tags = posts.tag.map((tag) => tag.tag);

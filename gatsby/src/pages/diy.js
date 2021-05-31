@@ -61,6 +61,7 @@ const SingleDiy = ({ diy, text }) => {
 const diy = ({ data }) => {
   // diy info
   const diys = data.posts.nodes.filter((diy) => diy.diy === true);
+
   // all diy tags for corresponding posts
   const tags = diys
     .map((diy) => diy.tag)
@@ -69,6 +70,7 @@ const diy = ({ data }) => {
     .map((tag) =>
       tag.replace(/(^\w{1})|(\s+\w{1})/g, (letter) => letter.toUpperCase())
     );
+
   // remove duplicate tags
   const uniqueTags = [...new Set(tags)];
 
@@ -97,8 +99,11 @@ const diy = ({ data }) => {
 };
 
 export const query = graphql`
-  query DiyQuery {
-    posts: allSanityPost(sort: { order: DESC, fields: _createdAt }) {
+  query DiyQuery($category: [String]) {
+    posts: allSanityPost(
+      sort: { order: DESC, fields: _createdAt }
+      filter: { tag: { elemMatch: { tag: { in: $category } } } }
+    ) {
       nodes {
         id
         diy
@@ -123,13 +128,6 @@ export const query = graphql`
             )
           }
         }
-      }
-    }
-    allSanityTag {
-      nodes {
-        diy
-        tag
-        recipes
       }
     }
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const TagStyles = styled.li`
@@ -16,7 +17,11 @@ const TagStyles = styled.li`
 `;
 
 const SingleTag = ({ tag }) => {
-  return <TagStyles className='tag-name'>{tag}</TagStyles>;
+  return (
+    <Link to={`/category/${tag}`}>
+      <TagStyles className='tag-name'>{tag}</TagStyles>
+    </Link>
+  );
 };
 
 export default SingleTag;

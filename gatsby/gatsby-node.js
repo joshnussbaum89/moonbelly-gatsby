@@ -1,5 +1,6 @@
 const path = require(`path`);
 
+// Blog post pages
 async function turnPostsIntoPages({ graphql, actions }) {
   const { createPage } = actions;
   // 1. get a template for this page
@@ -31,9 +32,72 @@ async function turnPostsIntoPages({ graphql, actions }) {
   });
 }
 
+// Recipe tag pages
+async function turnRecipeTagsIntoPages({ graphql, actions }) {
+  const { createPage } = actions;
+  // 1. get a template for this page
+  const recipeTagTemplate = path.resolve('./src/pages/recipes.js');
+  // 2. query all tags
+  const { data } = await graphql(`
+    query {
+      tags: allSanityTag(filter: { recipes: { eq: true } }) {
+        nodes {
+          tag
+        }
+      }
+    }
+  `);
+
+  // 3. createPage for that recipe tag
+  data.tags.nodes.forEach((tag) => {
+    createPage({
+      // url for the new page
+      path: `category/${tag.tag}`,
+      component: recipeTagTemplate,
+      context: {
+        category: tag.tag,
+      },
+    });
+  });
+}
+
+// DIY tag pages
+async function turnDiyTagsIntoPages({ graphql, actions }) {
+  const { createPage } = actions;
+  // 1. get a template for this page
+  const diyTagTemplate = path.resolve('./src/pages/diy.js');
+  // 2. query all tags
+  const { data } = await graphql(`
+    query {
+      tags: allSanityTag(filter: { diy: { eq: true } }) {
+        nodes {
+          tag
+        }
+      }
+    }
+  `);
+
+  // 3. createPage for that diy tag
+  data.tags.nodes.forEach((tag) => {
+    createPage({
+      // url for the new page
+      path: `category/${tag.tag}`,
+      component: diyTagTemplate,
+      context: {
+        category: tag.tag,
+      },
+    });
+  });
+}
+
 exports.createPages = async (params) => {
   // Created pages dynamically
-  // 1. Posts
-  await turnPostsIntoPages(params);
-  // 2. Tags
+  await Promise.all([
+    // 1. Posts
+    turnPostsIntoPages(params),
+    // 2. Recipe Tags
+    turnRecipeTagsIntoPages(params),
+    // 3. Diy tags
+    turnDiyTagsIntoPages(params),
+  ]);
 };
