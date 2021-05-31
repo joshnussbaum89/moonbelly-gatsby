@@ -134,7 +134,7 @@ const Nav = () => {
               />
               <input
                 className='search-input'
-                type='text'
+                type='search'
                 style={{ display: `${search === false ? 'none' : 'flex'}` }}
                 placeholder='Search'
               />
