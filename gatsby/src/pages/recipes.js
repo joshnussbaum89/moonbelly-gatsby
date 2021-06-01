@@ -17,9 +17,19 @@ const RecipeContainer = styled.div`
     margin: 2rem 0 1rem;
   }
   .recipe-img {
+    border-radius: 2px;
     width: 100%;
     margin: auto;
     display: block;
+  }
+  .read-more {
+    background-color: var(--pink);
+    border-radius: 2px;
+    transition: 0.2s;
+    padding: 0.1rem;
+  }
+  .read-more:hover {
+    background-color: var(--mint);
   }
 
   @media (min-width: 768px) {
@@ -48,7 +58,7 @@ const SingleRecipe = ({ recipe, text }) => {
       <p>
         {textTeaser}
         <Link to={`/post/${recipe.slug.current}`}>
-          <strong>... Read More</strong>
+          ... <strong className='read-more'>Read More</strong>
         </Link>
       </p>
       <Link to={`/post/${recipe.slug.current}`}>

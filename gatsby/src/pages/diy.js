@@ -17,9 +17,19 @@ const DiyContainer = styled.div`
     margin: 2rem 0 1rem;
   }
   .diy-img {
+    border-radius: 2px;
     width: 100%;
     margin: auto;
     display: block;
+  }
+  .read-more {
+    background-color: var(--pink);
+    border-radius: 2px;
+    transition: 0.2s;
+    padding: 0.1rem;
+  }
+  .read-more:hover {
+    background-color: var(--mint);
   }
 
   @media (min-width: 768px) {
@@ -48,7 +58,7 @@ const SingleDiy = ({ diy, text }) => {
       <p>
         {textTeaser}
         <Link to={`/post/${diy.slug.current}`}>
-          <strong>... Read More</strong>
+          ... <strong className='read-more'>Read More</strong>
         </Link>
       </p>
       <Link to={`/post/${diy.slug.current}`}>

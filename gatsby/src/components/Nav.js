@@ -5,11 +5,15 @@ import {
   AiOutlineYoutube,
   AiOutlineSearch,
   AiOutlineMenu,
+  AiOutlineClose,
 } from 'react-icons/ai';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import MobileNav from './MobileNav';
 
 const NavStyles = styled.div`
+  position: relative;
+
   nav {
     margin: 1rem 0;
     padding: 0.5rem 0;
@@ -28,20 +32,20 @@ const NavStyles = styled.div`
     color: var(--purple);
   }
 
-  /* Site navigation */
-  ul {
+  /* Desktop navigation */
+  .desktop-nav {
     display: none;
   }
-  ul > li {
+  .desktop-nav > li {
     align-self: center;
     list-style-type: none;
     padding-left: 2rem;
     transition: 0.2s;
   }
-  ul > li:not(:last-child):hover {
+  .desktop-nav > li:not(:last-child):hover {
     transform: translateY(-2px);
   }
-  ul > li > a {
+  .desktop-nav > li > a {
     color: var(--darkPurple);
     transition: 0.2s;
     text-decoration: none;
@@ -49,15 +53,8 @@ const NavStyles = styled.div`
   .social-icons a:hover,
   .hamburger:hover,
   .search-icon:hover,
-  ul > li > a:hover {
+  .desktop-nav > li > a:hover {
     color: var(--purple);
-  }
-
-  /* Mobile nav */
-  .hamburger {
-    cursor: pointer;
-    transition: 0.2s;
-    display: block;
   }
 
   /* Search */
@@ -80,23 +77,39 @@ const NavStyles = styled.div`
     color: var(--darkPurple);
   }
 
+  /* Hamburger and Mobile Nav close  */
+  .hamburger,
+  .mobile-close {
+    z-index: 100;
+    cursor: pointer;
+    transition: 0.4s;
+    display: block;
+  }
+  .mobile-close:hover {
+    color: var(--cream);
+  }
+
   /* Medium screens */
   @media (min-width: 768px) {
     nav {
       margin: 1rem 2rem;
     }
-    ul {
+    .desktop-nav {
       display: flex;
       flex-direction: row;
     }
     .hamburger {
       display: none;
     }
+    .mobile-nav {
+      margin: -1rem -1rem 0 0;
+    }
   }
 `;
 
 const Nav = () => {
   const [search, toggleSearch] = useState(false);
+  const [menuIsOpen, toggleMenuIsOpen] = useState(false);
 
   return (
     <>
@@ -113,7 +126,7 @@ const Nav = () => {
               <AiOutlineInstagram size='1.5rem' />
             </a>
           </div>
-          <ul>
+          <ul className='desktop-nav'>
             <li>
               <Link to='/'>Home</Link>
             </li>
@@ -140,9 +153,24 @@ const Nav = () => {
               />
             </li>
           </ul>
-          {/* TODO: Add mobile nav modal container onClick*/}
-          <AiOutlineMenu className='hamburger' size='1.75rem' />
+          {menuIsOpen ? (
+            <AiOutlineClose
+              className='mobile-close'
+              size='1.75rem'
+              onClick={() => toggleMenuIsOpen(!menuIsOpen)}
+            />
+          ) : (
+            <AiOutlineMenu
+              className='hamburger'
+              size='1.75rem'
+              onClick={() => toggleMenuIsOpen(!menuIsOpen)}
+            />
+          )}
         </nav>
+        <MobileNav
+          menuIsOpen={menuIsOpen}
+          toggleMenuIsOpen={toggleMenuIsOpen}
+        />
       </NavStyles>
     </>
   );

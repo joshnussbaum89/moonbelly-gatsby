@@ -24,6 +24,7 @@ const PostStyles = styled.div`
     margin: 2rem 0;
   }
   .gatsby-image-wrapper {
+    border-radius: 2px;
     margin: 1rem 0;
   }
 `;
