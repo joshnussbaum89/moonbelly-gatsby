@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const MobileNavStyles = styled.div`
-  /* Mobile Navigation */
   .mobile-nav {
     position: absolute;
     text-align: center;
@@ -15,8 +14,8 @@ const MobileNavStyles = styled.div`
     left: 0;
     bottom: 0;
     width: 100vw;
-    background: var(--purple);
-    box-shadow: 2px 2px 20px grey;
+    background: var(--purpleTransparent);
+    box-shadow: 2px 2px 40px grey;
     ul {
       list-style: none;
       li {
