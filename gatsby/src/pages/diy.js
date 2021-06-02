@@ -2,12 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Link, graphql } from 'gatsby';
+
+// Components
+import DividerSvg from '../components/svgs/DividerSvg';
 import SingleTag from '../components/SingleTag';
 
 const DiyContainer = styled.div`
   display: grid;
   grid-template-rows: 3fr 1fr;
   gap: 4rem;
+
+  .diy-tags {
+    margin-top: 2rem;
+    position: relative;
+  }
 
   .diys h2,
   .diy-tags h2 {
@@ -38,8 +46,8 @@ const DiyContainer = styled.div`
     grid-template-columns: 2fr 1fr;
 
     .diy-tags {
+      margin-top: initial;
       padding-left: 3rem;
-      border-left: 1px dashed var(--mint);
     }
     .diys,
     .diy-tags {
@@ -97,6 +105,7 @@ const diy = ({ data }) => {
         ))}
       </div>
       <div className='diy-tags'>
+        <DividerSvg />
         <h2>Categories</h2>
         <ul>
           {uniqueTags.map((tag, index) => (

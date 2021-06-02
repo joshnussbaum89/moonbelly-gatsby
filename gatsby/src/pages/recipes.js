@@ -2,12 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Link, graphql } from 'gatsby';
+
+// Components
 import SingleTag from '../components/SingleTag';
+import DividerSvg from '../components/svgs/DividerSvg';
 
 const RecipeContainer = styled.div`
   display: grid;
   grid-template-rows: 3fr 1fr;
   gap: 4rem;
+
+  .recipe-tags {
+    margin-top: 2rem;
+    position: relative;
+  }
 
   .recipes h2,
   .recipe-tags h2 {
@@ -38,8 +46,8 @@ const RecipeContainer = styled.div`
     grid-template-columns: 2fr 1fr;
 
     .recipe-tags {
+      margin-top: initial;
       padding-left: 3rem;
-      border-left: 1px dashed var(--mint);
     }
     .recipes,
     .recipe-tags {
@@ -97,7 +105,9 @@ const Recipes = ({ data }) => {
           />
         ))}
       </div>
+
       <div className='recipe-tags'>
+        <DividerSvg />
         <h2>Categories</h2>
         <ul>
           {uniqueTags.map((tag, index) => (
