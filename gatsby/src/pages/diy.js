@@ -58,7 +58,7 @@ const DiyContainer = styled.div`
 
 const SingleDiy = ({ diy, text }) => {
   const image = getImage(diy.cover.asset.gatsbyImageData);
-  const textTeaser = `${text.substring(0, 40)}`;
+  const textTeaser = `${text.substring(0, 30)}`;
 
   return (
     <>

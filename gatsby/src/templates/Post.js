@@ -1,6 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
+import PortableText from '@sanity/block-content-to-react';
+import urlBuilder from '@sanity/image-url';
 import styled from 'styled-components';
 
 // components
@@ -12,26 +14,46 @@ const PostStyles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: var(--medium);
   h2 {
     font-size: var(--variablePostTitle);
     text-shadow: var(--headerShadow);
     margin: 2rem 0;
     padding: 2rem;
   }
-  p {
-    font-size: var(--medium);
-    padding: 2rem 0;
+  h3 {
+    font-size: var(--large);
+  }
+  .post-container {
+    width: 100%;
     margin: 2rem 0;
   }
   .gatsby-image-wrapper {
     border-radius: 2px;
     margin: 1rem 0;
   }
+  .custom-image {
+    width: 100%;
+  }
 `;
+
+const urlFor = (source) =>
+  urlBuilder({ projectId: 'ubyb73h6', dataset: 'production' }).image(source);
+
+const serializer = {
+  types: {
+    image: (props) => (
+      <img
+        className='custom-image'
+        src={urlFor(props.node.asset)}
+        alt='placeholder'
+      />
+    ),
+  },
+};
 
 export default function SinglePostPage({ data: { posts } }) {
   const image = getImage(posts.cover.asset.gatsbyImageData);
-  const postText = posts.text[0].children[0].text;
   const tags = posts.tag.map((tag) => tag.tag);
 
   return (
@@ -43,7 +65,9 @@ export default function SinglePostPage({ data: { posts } }) {
           <SingleTag tag={tag} />
         ))}
       </ul>
-      <p>{postText}</p>
+      <div className='post-container'>
+        <PortableText blocks={posts._rawText} serializers={serializer} />
+      </div>
     </PostStyles>
   );
 }
@@ -54,6 +78,7 @@ export const query = graphql`
     posts: sanityPost(slug: { current: { eq: $slug } }) {
       title
       id
+      _rawText
       cover {
         asset {
           gatsbyImageData(

@@ -58,13 +58,13 @@ const RecipeContainer = styled.div`
 
 const SingleRecipe = ({ recipe, text }) => {
   const image = getImage(recipe.cover.asset.gatsbyImageData);
-  const textTeaser = `${text.substring(0, 40)}`;
+  // const textTeaser = `${text.substring(0, 30)}`;
 
   return (
     <>
       <h3>{recipe.title}</h3>
       <p>
-        {textTeaser}
+        {/* {textTeaser} */}
         <Link to={`/post/${recipe.slug.current}`}>
           ... <strong className='read-more'>Read More</strong>
         </Link>
@@ -100,7 +100,7 @@ const Recipes = ({ data }) => {
         {recipes.map((recipe) => (
           <SingleRecipe
             recipe={recipe}
-            text={recipe.text[0].children[0].text}
+            // text={recipe.text[0].children[0].text}
             key={recipe.id}
           />
         ))}

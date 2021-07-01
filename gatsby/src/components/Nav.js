@@ -116,13 +116,13 @@ const Nav = () => {
       <NavStyles>
         <nav>
           <div className='social-icons'>
-            <a href='#'>
+            <a href='https://facebook.com' target='_blank'>
               <ImPinterest2 size='1.5rem' />
             </a>
-            <a href='#'>
+            <a href='https://facebook.com' target='_blank'>
               <AiOutlineYoutube size='1.5rem' />
             </a>
-            <a href='#'>
+            <a href='https://facebook.com' target='_blank'>
               <AiOutlineInstagram size='1.5rem' />
             </a>
           </div>

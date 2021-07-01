@@ -34,10 +34,6 @@ const GlobalStyles = createGlobalStyle`
     a {
         color: var(--darkPurple);
     }
-    ul {
-        margin: 0;
-        padding: 0;
-    }
 
     @media (min-width: 768px) {
         body {
