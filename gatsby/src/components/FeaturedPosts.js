@@ -43,14 +43,14 @@ const FeaturedStyles = styled.div`
 const FeaturedPosts = ({ mostRecentRecipe, mostRecentDiy }) => {
   const recipeImage = getImage(mostRecentRecipe.cover.asset.gatsbyImageData);
   const diyImage = getImage(mostRecentDiy.cover.asset.gatsbyImageData);
-  // const recipeTextTeaser = `${mostRecentRecipe.text[0].children[0].text.substring(
-  //   0,
-  //   30
-  // )}`;
-  // const diyTextTeaser = `${mostRecentDiy.text[0].children[0].text.substring(
-  //   0,
-  //   30
-  // )}`;
+  const recipeTextTeaser = `${mostRecentRecipe.text[0].children[0].text.substring(
+    0,
+    30
+  )}`;
+  const diyTextTeaser = `${mostRecentDiy.text[0].children[0].text.substring(
+    0,
+    30
+  )}`;
 
   return (
     <>
@@ -59,7 +59,7 @@ const FeaturedPosts = ({ mostRecentRecipe, mostRecentDiy }) => {
           <div>
             <h2>{mostRecentRecipe.title}</h2>
             <p>
-              {/* {recipeTextTeaser} */}
+              {recipeTextTeaser}
               <Link to={`/post/${mostRecentRecipe.slug.current}`}>
                 ... <strong className='read-more'>Read More</strong>
               </Link>
@@ -75,7 +75,7 @@ const FeaturedPosts = ({ mostRecentRecipe, mostRecentDiy }) => {
           <div>
             <h2>{mostRecentDiy.title}</h2>
             <p>
-              {/* {diyTextTeaser} */}
+              {diyTextTeaser}
               <Link to={`/post/${mostRecentDiy.slug.current}`}>
                 ... <strong className='read-more'>Read More</strong>
               </Link>
