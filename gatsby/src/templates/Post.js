@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import PortableText from '@sanity/block-content-to-react';
 import urlBuilder from '@sanity/image-url';
 import styled from 'styled-components';

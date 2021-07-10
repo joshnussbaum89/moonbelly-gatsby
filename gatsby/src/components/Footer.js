@@ -41,22 +41,24 @@ const Footer = () => {
   return (
     <footer>
       <FooterStyles>
+        {/* TODO: */}
+        {/* Add valid urls for social icons */}
         <div>
-          <a href='#'>
+          <a href='#top'>
             <ImPinterest2 size='1.5rem' className='footer-icon' />
           </a>
-          <a href='#'>
+          <a href='#top'>
             <AiOutlineYoutube size='1.5rem' className='footer-icon' />
           </a>
-          <a href='#'>
+          <a href='#top'>
             <AiOutlineInstagram size='1.5rem' className='footer-icon' />
           </a>
         </div>
         <div>
           <p>
-            ♡ Made with care by{' '}
+            ♡ Made with care by
             <a href='https://joshnussbaum.io/' target='_blank' rel='noreferrer'>
-              Josh Nussbaum{' '}
+              Josh Nussbaum
             </a>
           </p>
           <p>Copyright Moonbelly Makes {new Date().getFullYear()}</p>
