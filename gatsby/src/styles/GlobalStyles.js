@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
         --purpleLight: #b4abf536;
         --purpleTransparent: #b4abf5fb;
         --pink: #FAEAF7;
+        --pinkError: #ff00d0;
         --cream: #f8f7f4;
         --peach: #FEE4D3;
         ${'' /* Font sizes */}

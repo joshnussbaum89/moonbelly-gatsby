@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeroSubscribe from './HeroSubscribe';
+import MailchimpFormContainer from './MailchimpFormContainer';
 
 const HeroStyles = styled.div`
   /* Main hero styles */
@@ -59,7 +59,7 @@ const Hero = () => {
             <p class='hero-makes'>Makes</p>
             <p class='hero-decorate'>~ decorate your life ~</p>
           </div>
-          <HeroSubscribe />
+          <MailchimpFormContainer />
         </div>
       </HeroStyles>
     </>

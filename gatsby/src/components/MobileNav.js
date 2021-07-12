@@ -27,6 +27,7 @@ const MobileNavStyles = styled.div`
     }
   }
   .mobile-nav-closed {
+    display: none;
     height: 0vh;
     width: 0vw;
     opacity: 0;

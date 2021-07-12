@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: 'Moonbelly Makes',
@@ -11,6 +15,7 @@ module.exports = {
         projectId: 'ubyb73h6',
         dataset: 'production',
         watchMode: true,
+        // prepend the dotenv variables with "REACT_APP_" ??
         token: process.env.SANITY_TOKEN,
       },
     },
