@@ -78,9 +78,7 @@ const SingleRecipe = ({ recipe, text }) => {
 
 const Recipes = ({ data }) => {
   // recipe info
-  const recipes = data.allSanityPost.nodes.filter(
-    (recipe) => recipe.recipe === true
-  );
+  const recipes = data.posts.nodes.filter((recipe) => recipe.recipe === true);
 
   // all recipe tags for corresponding posts
   const tags = recipes
@@ -121,7 +119,7 @@ const Recipes = ({ data }) => {
 
 export const query = graphql`
   query RecipesQuery($category: [String]) {
-    allSanityPost(
+    posts: allSanityPost(
       sort: { order: DESC, fields: _createdAt }
       filter: { tag: { elemMatch: { tag: { in: $category } } } }
     ) {

@@ -14,15 +14,14 @@ const Typography = createGlobalStyle`
         src: url(${libreFont});
     } 
     
-
     body {
-        font-family: LibreFranklin;
+        font-family: LibreFranklin, Arial, Helvetica, sans-serif;
         font-weight: 300;
     }
 
     h1, h2, h3 {
         color: var(--darkPurple);
-        font-family: BerkShire;
+        font-family: BerkShire, Arial, Helvetica, sans-serif;
     }
 
     h2 {

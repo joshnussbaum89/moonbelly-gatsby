@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { graphql } from 'gatsby';
 
 const ContactStyles = styled.div`
   max-width: 800px;
@@ -44,17 +45,17 @@ const ContactStyles = styled.div`
   }
 `;
 
-const contact = () => {
+const Contact = () => {
   return (
     <ContactStyles>
       <h2>Get In Touch</h2>
       <form name='contact' action='POST' data-netlify='true'>
         <div className='contact-form-info'>
-          <input type='text' placeholder='Name' name='name' />
-          <input type='text' placeholder='Email' name='email' />
+          <input type='text' placeholder='Full Name' name='name' />
+          <input type='text' placeholder='Email Address' name='email' />
           <textarea
             name='message'
-            placeholder='Your message...'
+            placeholder='Your Message'
             cols='30'
             rows='10'
           ></textarea>
@@ -65,4 +66,33 @@ const contact = () => {
   );
 };
 
-export default contact;
+export const query = graphql`
+  query PostsQueryAndPostsQuery {
+    posts: allSanityPost(sort: { order: DESC, fields: _createdAt }) {
+      nodes {
+        diy
+        recipe
+        title
+        slug {
+          current
+        }
+        text {
+          children {
+            text
+          }
+        }
+        cover {
+          asset {
+            gatsbyImageData(
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              width: 2500
+            )
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default Contact;

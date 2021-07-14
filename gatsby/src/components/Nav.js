@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { ImPinterest2 } from 'react-icons/im';
 import {
@@ -42,7 +42,7 @@ const NavStyles = styled.div`
     padding-left: 2rem;
     transition: 0.2s;
   }
-  .desktop-nav > li:not(:last-child):hover {
+  .desktop-nav > li:nth-child(-n + 4):hover {
     transform: translateY(-2px);
   }
   .desktop-nav > li > a {
@@ -58,10 +58,6 @@ const NavStyles = styled.div`
   }
 
   /* Search */
-  .search {
-    align-self: center;
-    display: flex;
-  }
   .search-icon {
     align-self: center;
     transition: 0.2s;
@@ -75,6 +71,24 @@ const NavStyles = styled.div`
     border-radius: 2px;
     font-size: var(--small);
     color: var(--darkPurple);
+  }
+  .search-options {
+    display: flex;
+    flex-direction: column;
+  }
+  .search-select {
+    padding: 0.4rem;
+    width: 10rem;
+    border: 1px solid var(--darkPurple);
+    border-radius: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--small);
+    color: var(--darkPurple);
+  }
+  .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Hamburger and Mobile Nav close  */
@@ -107,9 +121,23 @@ const NavStyles = styled.div`
   }
 `;
 
-const Nav = () => {
+const Nav = ({ data }) => {
   const [search, toggleSearch] = useState(false);
   const [menuIsOpen, toggleMenuIsOpen] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const inputEl = useRef(null);
+
+  const editSearchInput = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSearch = () => {
+    const titles = data.posts.nodes.map((post) => post.title);
+
+    return titles.filter((post) =>
+      post.toLowerCase().includes(inputValue.toLowerCase())
+    );
+  };
 
   return (
     <>
@@ -139,7 +167,7 @@ const Nav = () => {
             <li>
               <Link to='/contact'>Contact</Link>
             </li>
-            <li className='search'>
+            <li className='search-container'>
               <AiOutlineSearch
                 size='1.5rem'
                 className='search-icon'
@@ -150,7 +178,20 @@ const Nav = () => {
                 type='search'
                 style={{ display: `${search === false ? 'none' : 'flex'}` }}
                 placeholder='Search'
+                ref={inputEl}
+                onChange={(e) => editSearchInput(e)}
+                value={inputValue}
               />
+            </li>
+            <li>
+              <select
+                className='search-select'
+                style={{ display: `${search === false ? 'none' : 'flex'}` }}
+              >
+                {handleSearch().map((title) => (
+                  <option>{title}</option>
+                ))}
+              </select>
             </li>
           </ul>
           {menuIsOpen ? (

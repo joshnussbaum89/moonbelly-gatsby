@@ -7,12 +7,12 @@ import Typography from '../styles/Typography';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 
-export default function Layout({ children }) {
+export default function Layout({ children, data }) {
   return (
     <div>
       <GlobalStyles />
       <Typography />
-      <Nav />
+      <Nav data={data} />
       {children}
       <Footer />
     </div>
