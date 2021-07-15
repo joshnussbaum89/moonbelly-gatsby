@@ -1,3 +1,6 @@
+// TODO:
+// Break this into smaller, cleaner components
+
 import React, { useState, useRef } from 'react';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { ImPinterest2 } from 'react-icons/im';
@@ -36,9 +39,9 @@ const NavStyles = styled.div`
   .desktop-nav {
     display: none;
   }
-  .desktop-nav > li {
+  .desktop-nav > li:not(:last-child) {
     align-self: center;
-    list-style-type: none;
+    list-style: none;
     padding-left: 2rem;
     transition: 0.2s;
   }
@@ -58,12 +61,16 @@ const NavStyles = styled.div`
   }
 
   /* Search */
-  .search-icon {
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  .search-container__icon {
     align-self: center;
     transition: 0.2s;
     cursor: pointer;
   }
-  .search-input {
+  .search-container__input {
     margin-left: 2rem;
     padding: 0.4rem;
     width: 10rem;
@@ -73,22 +80,36 @@ const NavStyles = styled.div`
     color: var(--darkPurple);
   }
   .search-options {
-    display: flex;
-    flex-direction: column;
-  }
-  .search-select {
-    padding: 0.4rem;
-    width: 10rem;
-    border: 1px solid var(--darkPurple);
+    background: white;
+    list-style: none;
+    position: absolute;
+    width: 590px;
+    z-index: 100;
+    top: 2.2rem;
+    right: 2rem;
     border-radius: 2px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: var(--small);
-    color: var(--darkPurple);
   }
-  .search-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .search-options__ul {
+    width: 100%;
+    padding: 0;
+    list-style: none;
+  }
+  .search-options__li {
+    display: block;
+  }
+  .search-options__li:hover {
+    background: var(--darkPurple);
+    border-radius: 2px;
+    cursor: pointer;
+  }
+  .search-options__li:hover a {
+    color: white;
+  }
+  .search-options__li a {
+    display: inline-block;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
   }
 
   /* Hamburger and Mobile Nav close  */
@@ -126,94 +147,98 @@ const Nav = ({ data }) => {
   const [menuIsOpen, toggleMenuIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const inputEl = useRef(null);
+  let postsLength = data.posts.nodes.length;
 
   const editSearchInput = (e) => {
     setInputValue(e.target.value);
   };
 
   const handleSearch = () => {
-    const titles = data.posts.nodes.map((post) => post.title);
+    const titles = data.posts.nodes
+      .map((post) => post.title)
+      .filter((post) => post.toLowerCase().includes(inputValue.toLowerCase()));
+    const slugs = data.posts.nodes
+      .map((post) => post.slug.current)
+      .filter((post) => post.toLowerCase().includes(inputValue.toLowerCase()));
 
-    return titles.filter((post) =>
-      post.toLowerCase().includes(inputValue.toLowerCase())
-    );
+    return [titles, slugs];
   };
 
+  let [titles, slugs] = handleSearch();
+
   return (
-    <>
-      <NavStyles>
-        <nav>
-          <div className='social-icons'>
-            <a href='https://facebook.com' target='_blank' rel='noreferrer'>
-              <ImPinterest2 size='1.5rem' />
-            </a>
-            <a href='https://facebook.com' target='_blank' rel='noreferrer'>
-              <AiOutlineYoutube size='1.5rem' />
-            </a>
-            <a href='https://facebook.com' target='_blank' rel='noreferrer'>
-              <AiOutlineInstagram size='1.5rem' />
-            </a>
-          </div>
-          <ul className='desktop-nav'>
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-            <li>
-              <Link to='/recipes'>Recipes</Link>
-            </li>
-            <li>
-              <Link to='/diy'>DIYs</Link>
-            </li>
-            <li>
-              <Link to='/contact'>Contact</Link>
-            </li>
-            <li className='search-container'>
-              <AiOutlineSearch
-                size='1.5rem'
-                className='search-icon'
-                onClick={() => toggleSearch(!search)}
-              />
-              <input
-                className='search-input'
-                type='search'
-                style={{ display: `${search === false ? 'none' : 'flex'}` }}
-                placeholder='Search'
-                ref={inputEl}
-                onChange={(e) => editSearchInput(e)}
-                value={inputValue}
-              />
-            </li>
-            <li>
-              <select
-                className='search-select'
-                style={{ display: `${search === false ? 'none' : 'flex'}` }}
-              >
-                {handleSearch().map((title) => (
-                  <option>{title}</option>
-                ))}
-              </select>
-            </li>
-          </ul>
-          {menuIsOpen ? (
-            <AiOutlineClose
-              className='mobile-close'
-              size='1.75rem'
-              onClick={() => toggleMenuIsOpen(!menuIsOpen)}
+    <NavStyles>
+      <nav>
+        <div className='social-icons'>
+          <a href='https://facebook.com' target='_blank' rel='noreferrer'>
+            <ImPinterest2 size='1.5rem' />
+          </a>
+          <a href='https://facebook.com' target='_blank' rel='noreferrer'>
+            <AiOutlineYoutube size='1.5rem' />
+          </a>
+          <a href='https://facebook.com' target='_blank' rel='noreferrer'>
+            <AiOutlineInstagram size='1.5rem' />
+          </a>
+        </div>
+        <ul className='desktop-nav'>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/recipes'>Recipes</Link>
+          </li>
+          <li>
+            <Link to='/diy'>DIYs</Link>
+          </li>
+          <li>
+            <Link to='/contact'>Contact</Link>
+          </li>
+          <li className='search-container'>
+            <AiOutlineSearch
+              size='1.5rem'
+              className='search-container__icon'
+              onClick={() => toggleSearch(!search)}
             />
-          ) : (
-            <AiOutlineMenu
-              className='hamburger'
-              size='1.75rem'
-              onClick={() => toggleMenuIsOpen(!menuIsOpen)}
+            <input
+              className='search-container__input'
+              type='search'
+              style={{ display: `${search === false ? 'none' : 'flex'}` }}
+              placeholder='Search'
+              ref={inputEl}
+              onChange={(e) => editSearchInput(e)}
+              value={inputValue}
             />
-          )}
-        </nav>
-        <MobileNav
-          menuIsOpen={menuIsOpen}
-          toggleMenuIsOpen={toggleMenuIsOpen}
-        />
-      </NavStyles>
-    </>
+          </li>
+          <li className='search-options'>
+            <div style={{ display: `${search === false ? 'none' : 'flex'}` }}>
+              <ul className='search-options__ul'>
+                {postsLength === titles.length
+                  ? null
+                  : titles.map((title, key) => (
+                      <li className='search-options__li' key={key}>
+                        <Link to={`/post/${slugs[key]}`}>{title}</Link>
+                      </li>
+                    ))}
+              </ul>
+            </div>
+          </li>
+        </ul>
+        {menuIsOpen ? (
+          <AiOutlineClose
+            className='mobile-close'
+            size='1.75rem'
+            onClick={() => toggleMenuIsOpen(!menuIsOpen)}
+          />
+        ) : (
+          <AiOutlineMenu
+            className='hamburger'
+            size='1.75rem'
+            onClick={() => toggleMenuIsOpen(!menuIsOpen)}
+          />
+        )}
+      </nav>
+      <MobileNav menuIsOpen={menuIsOpen} toggleMenuIsOpen={toggleMenuIsOpen} />
+    </NavStyles>
   );
 };
 

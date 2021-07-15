@@ -52,30 +52,32 @@ const serializer = {
   },
 };
 
-export default function SinglePostPage({ data: { posts } }) {
-  const image = getImage(posts.cover.asset.gatsbyImageData);
-  const tags = posts.tag.map((tag) => tag.tag);
+export default function SinglePostPage({ data: { post } }) {
+  const image = getImage(post.cover.asset.gatsbyImageData);
+  const tags = post.tag.map((tag) => tag.tag);
 
   return (
-    <PostStyles>
-      <h2>{posts.title}</h2>
-      <GatsbyImage image={image} alt={posts.title} />
-      <ul>
-        {tags.map((tag) => (
-          <SingleTag tag={tag} />
-        ))}
-      </ul>
-      <div className='post-container'>
-        <PortableText blocks={posts._rawText} serializers={serializer} />
-      </div>
-    </PostStyles>
+    <>
+      <PostStyles>
+        <h2>{post.title}</h2>
+        <GatsbyImage image={image} alt={post.title} />
+        <ul>
+          {tags.map((tag) => (
+            <SingleTag tag={tag} />
+          ))}
+        </ul>
+        <div className='post-container'>
+          <PortableText blocks={post._rawText} serializers={serializer} />
+        </div>
+      </PostStyles>
+    </>
   );
 }
 
 // This needs to be dynamic base on the slug passed in via context in gatsby-node.js
 export const query = graphql`
   query ($slug: String!) {
-    posts: sanityPost(slug: { current: { eq: $slug } }) {
+    post: sanityPost(slug: { current: { eq: $slug } }) {
       title
       id
       _rawText
@@ -101,6 +103,30 @@ export const query = graphql`
       diy
       id
       recipes
+    }
+    posts: allSanityPost(sort: { order: DESC, fields: _createdAt }) {
+      nodes {
+        diy
+        recipe
+        title
+        slug {
+          current
+        }
+        text {
+          children {
+            text
+          }
+        }
+        cover {
+          asset {
+            gatsbyImageData(
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              width: 2500
+            )
+          }
+        }
+      }
     }
   }
 `;

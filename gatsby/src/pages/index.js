@@ -11,7 +11,7 @@ const HomePage = ({ data }) => {
   const posts = data.posts.nodes;
   const mostRecentRecipe = posts.filter((post) => post.recipe === true)[0];
   const mostRecentDiy = posts.filter((post) => post.diy === true)[0];
-  
+
   return (
     <>
       <Hero id='top' />
