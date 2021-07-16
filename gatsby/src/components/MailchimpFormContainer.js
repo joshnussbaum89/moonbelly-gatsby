@@ -74,7 +74,7 @@ const McFormStyles = styled.div`
       left: -103px;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
       display: flex;
       flex-direction: row;
       justify-content: center;

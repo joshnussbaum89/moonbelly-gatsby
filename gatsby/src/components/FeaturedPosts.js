@@ -9,8 +9,7 @@ const FeaturedStyles = styled.div`
   }
   .featured {
     border-top: 1px dashed var(--mint);
-    margin: 2rem 0;
-    padding: 5rem 0 3rem;
+    padding: 8rem 0;
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -27,7 +26,7 @@ const FeaturedStyles = styled.div`
   .read-more:hover {
     background-color: var(--mint);
   }
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     .featured {
       display: flex;
       flex-direction: row;

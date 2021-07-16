@@ -11,7 +11,7 @@ const MissionStyles = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, minmax(1fr, 500px));
 
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: minmax(450px, 1fr);
   }

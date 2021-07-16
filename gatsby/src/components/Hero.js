@@ -6,7 +6,7 @@ const HeroStyles = styled.div`
   /* Main hero styles */
   .hero {
     position: relative;
-    height: 90vh;
+    height: 750px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,7 +42,7 @@ const HeroStyles = styled.div`
     text-shadow: none;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     .hero-logo {
       margin-bottom: 8rem;
     }

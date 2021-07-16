@@ -28,7 +28,7 @@ const FooterStyles = styled.div`
     cursor: pointer;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     margin: 8rem 0 0;
     display: flex;
     flex-direction: row;

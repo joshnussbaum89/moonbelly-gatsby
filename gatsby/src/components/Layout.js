@@ -1,7 +1,6 @@
-// TODO:
-// Use Context API to share data, not the data prop
-
 import React from 'react';
+
+// Styles
 import 'normalize.css';
 import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';

@@ -8,7 +8,6 @@ const DividerSvgStyles = styled.div`
   transform: rotate(270deg);
   top: -230px;
 
-  /* layout gets wonky on tiny screens */
   @media (max-width: 325px) {
     display: none;
   }

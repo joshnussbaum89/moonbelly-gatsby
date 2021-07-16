@@ -45,7 +45,7 @@ const MobileNavStyles = styled.div`
     transition: 0.4s;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     .mobile-nav {
       margin: -1rem -1rem 0 0;
     }

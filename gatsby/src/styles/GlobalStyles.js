@@ -36,7 +36,7 @@ const GlobalStyles = createGlobalStyle`
         color: var(--darkPurple);
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: 900px) {
         body {
             margin: 0;
         }
