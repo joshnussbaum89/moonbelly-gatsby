@@ -23,6 +23,7 @@ const SearchBar = ({
         ref={inputEl}
         onChange={(e) => editSearchInput(e)}
         value={inputValue}
+        autoFocus
       />
     </>
   );

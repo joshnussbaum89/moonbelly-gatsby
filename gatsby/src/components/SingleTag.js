@@ -6,13 +6,13 @@ const TagStyles = styled.li`
   display: inline-block;
   cursor: pointer;
   text-align: center;
-  border: 1px solid var(--darkPurple);
+  background: var(--pink);
   border-radius: 20px;
   padding: 0.6rem;
   margin: 0.2rem;
   transition: 0.2s;
   :hover {
-    background: var(--pink);
+    background: var(--mint);
   }
 `;
 

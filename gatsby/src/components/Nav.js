@@ -90,6 +90,7 @@ const Nav = ({ data }) => {
           postsLength={postsLength}
           titles={titles}
           slugs={slugs}
+          setInputValue={setInputValue}
         />
         {menuIsOpen ? (
           <AiOutlineClose

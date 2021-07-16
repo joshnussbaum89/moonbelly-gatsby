@@ -10,24 +10,35 @@ const SearchBarOptionsStyles = styled.div`
   }
   .search-options__li {
     display: block;
+    transition: 0.2s;
   }
   .search-options__li:hover {
-    background: var(--darkPurple);
+    background: var(--purpleLight);
     border-radius: 2px;
     cursor: pointer;
-  }
-  .search-options__li:hover a {
-    color: white;
   }
   .search-options__li a {
     display: inline-block;
     padding: 1rem;
     width: 100%;
     height: 100%;
+    transition: 0.2s;
   }
 `;
 
-const SearchBarOptions = ({ search, postsLength, titles, slugs }) => {
+const SearchBarOptions = ({
+  search,
+  postsLength,
+  titles,
+  slugs,
+  setInputValue,
+  toggleSearch,
+}) => {
+  const closeSearchAndClearnInput = () => {
+    setInputValue('');
+    toggleSearch(!search);
+  };
+
   return (
     <SearchBarOptionsStyles
       style={{ display: `${search === false ? 'none' : 'flex'}` }}
@@ -37,7 +48,12 @@ const SearchBarOptions = ({ search, postsLength, titles, slugs }) => {
           ? null
           : titles.map((title, key) => (
               <li className='search-options__li' key={key}>
-                <Link to={`/post/${slugs[key]}`}>{title}</Link>
+                <Link
+                  to={`/post/${slugs[key]}`}
+                  onClick={() => closeSearchAndClearnInput()}
+                >
+                  {title}
+                </Link>
               </li>
             ))}
       </ul>

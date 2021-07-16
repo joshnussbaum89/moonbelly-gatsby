@@ -20,6 +20,7 @@ const PostStyles = styled.div`
     text-shadow: var(--headerShadow);
     margin: 2rem 0;
     padding: 2rem;
+    text-align: center;
   }
   h3 {
     font-size: var(--large);

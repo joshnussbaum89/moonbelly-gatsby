@@ -16,6 +16,9 @@ const RecipeContainer = styled.div`
     margin-top: 2rem;
     position: relative;
   }
+  .recipe-tags ul {
+    padding: 0;
+  }
 
   .recipes h2,
   .recipe-tags h2 {

@@ -52,10 +52,14 @@ const DesktopNavStyles = styled.ul`
     margin-left: 2rem;
     padding: 0.4rem;
     width: 10rem;
-    border: 1px solid var(--darkPurple);
+    border: 1px solid var(--purple);
     border-radius: 2px;
     font-size: var(--small);
     color: var(--darkPurple);
+    :focus {
+      outline: none;
+      border: 1px solid var(--darkPurple);
+    }
   }
 
   /* Medium screens */
@@ -74,6 +78,7 @@ const DesktopNav = ({
   postsLength,
   titles,
   slugs,
+  setInputValue,
 }) => {
   return (
     <DesktopNavStyles>
@@ -104,6 +109,8 @@ const DesktopNav = ({
           postsLength={postsLength}
           titles={titles}
           slugs={slugs}
+          setInputValue={setInputValue}
+          toggleSearch={toggleSearch}
         />
       </li>
     </DesktopNavStyles>
