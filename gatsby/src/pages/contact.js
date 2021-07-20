@@ -22,9 +22,14 @@ const ContactStyles = styled.div`
     width: 96%;
     border: 1px solid var(--purple);
     color: var(--darkPurple);
+    outline: none;
     padding: 0.5rem;
     margin: 0.6rem auto;
     border-radius: 2px;
+  }
+  input[type='text']:focus,
+  textarea:focus {
+    border: 1px solid var(--darkPurple);
   }
   input[type='submit'] {
     width: 40%;
