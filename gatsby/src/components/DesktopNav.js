@@ -15,14 +15,17 @@ const DesktopNavStyles = styled.ul`
     padding-left: 2rem;
     transition: 0.2s;
   }
+
   > li:nth-child(-n + 4):hover {
     transform: translateY(-2px);
   }
+
   > li > a {
     color: var(--darkPurple);
     transition: 0.2s;
     text-decoration: none;
   }
+
   > li > a:hover {
     color: var(--purple);
   }
@@ -43,11 +46,13 @@ const DesktopNavStyles = styled.ul`
     display: flex;
     align-items: center;
   }
+
   .search-container__icon {
     align-self: center;
     transition: 0.2s;
     cursor: pointer;
   }
+  
   .search-container__input {
     margin-left: 2rem;
     padding: 0.4rem;

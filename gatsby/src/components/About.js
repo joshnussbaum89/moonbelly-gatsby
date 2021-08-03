@@ -14,6 +14,7 @@ const AboutStyles = styled.div`
     flex-direction: column;
     align-items: center;
   }
+  
   .about-katrina {
     text-align: center;
   }

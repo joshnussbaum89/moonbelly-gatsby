@@ -27,10 +27,12 @@ const ContactStyles = styled.div`
     margin: 0.6rem auto;
     border-radius: 2px;
   }
+
   input[type='text']:focus,
   textarea:focus {
     border: 1px solid var(--darkPurple);
   }
+
   input[type='submit'] {
     width: 40%;
     background: var(--purple);
@@ -42,9 +44,11 @@ const ContactStyles = styled.div`
     transition: 0.1s;
     cursor: pointer;
   }
+
   input[type='submit']:hover {
     transform: scale(1.02);
   }
+
   input[type='submit']:active {
     transform: scale(1);
   }

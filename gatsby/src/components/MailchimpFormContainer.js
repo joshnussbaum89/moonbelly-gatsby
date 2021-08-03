@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import MailchimpSubscribe from 'react-mailchimp-subscribe';
-
 import styled from 'styled-components';
+import MailchimpSubscribe from 'react-mailchimp-subscribe';
 
 // Components
 import LilyHome from './svgs/LilyHome';
@@ -20,9 +19,11 @@ const McFormStyles = styled.div`
       color: var(--purple);
     }
   }
+
   .mc-alert--error {
     color: var(--pinkError);
   }
+
   .mc-alert--success {
     color: var(--mint);
   }
@@ -54,17 +55,21 @@ const McFormStyles = styled.div`
       transition: 0.1s;
       cursor: pointer;
     }
+
     .button-and-lily > input[type='submit']:hover {
       transform: scale(1.02);
     }
+
     .button-and-lily > input[type='submit']:active {
       transform: scale(1);
     }
+
     .button-and-lily {
       position: relative;
       display: flex;
       flex-direction: column;
     }
+
     .lily-home {
       position: absolute;
       z-index: -1;
@@ -153,7 +158,7 @@ const CustomForm = ({ status, message, onValidated }) => {
   );
 };
 
-const MailchimpFormContainer = (props) => {
+const MailchimpFormContainer = () => {
   // TODO: .env.development file needs to be switched to .env.production
   const postUrl = `https://gmail.us4.list-manage.com/subscribe/post?u=${process.env.MAILCHIMP_U}&id=${process.env.MAILCHIMP_ID}`;
 

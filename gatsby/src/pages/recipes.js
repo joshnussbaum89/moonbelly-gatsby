@@ -13,9 +13,10 @@ const RecipeContainer = styled.div`
   gap: 4rem;
 
   .recipe-tags {
-    margin-top: 2rem;
     position: relative;
+    margin-top: 2rem;
   }
+
   .recipe-tags ul {
     padding: 0;
   }
@@ -24,21 +25,25 @@ const RecipeContainer = styled.div`
   .recipe-tags h2 {
     margin: 2rem 0;
   }
+
   .recipes h3 {
     margin: 2rem 0 1rem;
   }
+
   .recipe-img {
-    border-radius: 2px;
-    width: 100%;
-    margin: auto;
     display: block;
+    margin: auto;
+    width: 100%;
+    border-radius: 2px;
   }
+
   .read-more {
     background-color: var(--pink);
     border-radius: 2px;
     transition: 0.2s;
     padding: 0.1rem;
   }
+
   .read-more:hover {
     background-color: var(--mint);
   }
@@ -52,6 +57,7 @@ const RecipeContainer = styled.div`
       margin-top: initial;
       padding-left: 3rem;
     }
+
     .recipes,
     .recipe-tags {
       margin: 2rem 0 8rem;

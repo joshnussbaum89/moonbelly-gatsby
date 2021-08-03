@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 const SearchBarOptionsStyles = styled.div`
   .search-options__ul {
@@ -8,15 +8,18 @@ const SearchBarOptionsStyles = styled.div`
     padding: 0;
     list-style: none;
   }
+
   .search-options__li {
     display: block;
     transition: 0.2s;
   }
+
   .search-options__li:hover {
     background: var(--purpleLight);
     border-radius: 2px;
     cursor: pointer;
   }
+
   .search-options__li a {
     display: inline-block;
     padding: 1rem;

@@ -1,12 +1,13 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import styled from 'styled-components';
 
 const FeaturedStyles = styled.div`
   h2 {
     margin: 1rem 0;
   }
+
   .featured {
     border-top: 1px dashed var(--mint);
     padding: 8rem 0;
@@ -14,23 +15,28 @@ const FeaturedStyles = styled.div`
     flex-direction: column;
     align-content: space-between;
   }
+
   .featured-img {
     width: 100%;
   }
+
   .read-more {
     background-color: var(--pink);
     border-radius: 2px;
     transition: 0.2s;
     padding: 0.1rem;
   }
+
   .read-more:hover {
     background-color: var(--mint);
   }
+
   @media (min-width: 900px) {
     .featured {
       display: flex;
       flex-direction: row;
     }
+
     .featured-img {
       width: 100%;
       margin: auto;
@@ -42,6 +48,8 @@ const FeaturedStyles = styled.div`
 const FeaturedPosts = ({ mostRecentRecipe, mostRecentDiy }) => {
   const recipeImage = getImage(mostRecentRecipe.cover.asset.gatsbyImageData);
   const diyImage = getImage(mostRecentDiy.cover.asset.gatsbyImageData);
+
+  // Preview recipe and DIY post text
   const recipeTextTeaser = `${mostRecentRecipe.text[0].children[0].text.substring(
     0,
     30

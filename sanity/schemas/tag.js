@@ -18,71 +18,71 @@ export default {
       name: 'recipes',
       title: 'Recipes',
       type: 'boolean',
-      description: 'Select all subcategories that apply below.',
+      description: 'Select if tag is for a recipe post.',
     },
     // Recipes subcategories
     // Recipe Type
-    {
-      name: 'recipeType',
-      title: 'Recipe Type',
-      type: 'boolean',
-      options: {
-        layout: 'checkbox',
-      },
-    },
+    // {
+    //   name: 'recipeType',
+    //   title: 'Recipe Type',
+    //   type: 'boolean',
+    //   options: {
+    //     layout: 'checkbox',
+    //   },
+    // },
     // Ingredient
-    {
-      name: 'ingredient',
-      title: 'Ingredient',
-      type: 'boolean',
-      options: {
-        layout: 'checkbox',
-      },
-    },
+    // {
+    //   name: 'ingredient',
+    //   title: 'Ingredient',
+    //   type: 'boolean',
+    //   options: {
+    //     layout: 'checkbox',
+    //   },
+    // },
     // Restriction
-    {
-      name: 'restriction',
-      title: 'Restriction',
-      type: 'boolean',
-      options: {
-        layout: 'checkbox',
-      },
-    },
+    // {
+    //   name: 'restriction',
+    //   title: 'Restriction',
+    //   type: 'boolean',
+    //   options: {
+    //     layout: 'checkbox',
+    //   },
+    // },
     // Main category - DIY
     {
       name: 'diy',
       title: 'DIY',
       type: 'boolean',
-      description: 'Select all subcategories that apply below.',
+      description: 'Select if tag is for a DIY post.',
     },
     // DIY subcategories
     // Materials
-    {
-      name: 'materials',
-      title: 'Materials',
-      type: 'boolean',
-      options: {
-        layout: 'checkbox',
-      },
-    },
+    // {
+    //   name: 'materials',
+    //   title: 'Materials',
+    //   type: 'boolean',
+    //   options: {
+    //     layout: 'checkbox',
+    //   },
+    // },
     // Location
-    {
-      name: 'location',
-      title: 'Location',
-      type: 'boolean',
-      options: {
-        layout: 'checkbox',
-      },
-    },
+    // {
+    //   name: 'location',
+    //   title: 'Location',
+    //   type: 'boolean',
+    //   options: {
+    //     layout: 'checkbox',
+    //   },
+    // },
     // Placeholder *** Change to real subcategory
-    {
-      name: 'placeholder',
-      title: 'Placeholder',
-      type: 'boolean',
-      options: {
-        layout: 'checkbox',
-      },
-    },
+    // {
+    //   name: 'placeholder',
+    //   title: 'Placeholder',
+    //   type: 'boolean',
+    //   options: {
+    //     layout: 'checkbox',
+    //   },
+    // },
   ],
   // Customise what preview looks like
   preview: {

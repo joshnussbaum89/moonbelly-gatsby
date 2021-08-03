@@ -11,6 +11,7 @@ const DividerSvgStyles = styled.div`
   @media (max-width: 325px) {
     display: none;
   }
+  
   @media (min-width: 768px) {
     transform: rotate(360deg);
     top: 30px;

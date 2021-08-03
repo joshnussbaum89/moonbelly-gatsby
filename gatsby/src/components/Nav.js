@@ -34,6 +34,7 @@ const NavStyles = styled.div`
     transition: 0.4s;
     display: block;
   }
+
   .mobile-close:hover {
     color: var(--cream);
   }
@@ -43,9 +44,11 @@ const NavStyles = styled.div`
     nav {
       margin: 1rem 2rem;
     }
+
     .hamburger {
       display: none;
     }
+
     .mobile-nav {
       margin: -1rem -1rem 0 0;
     }

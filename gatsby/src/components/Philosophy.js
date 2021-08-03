@@ -12,29 +12,36 @@ const PhilosophyStyles = styled.div`
   .philosophy-container {
     display: flex;
   }
+
   .philosophy-container,
   .philosophy {
     flex-direction: column;
     align-items: center;
   }
+
   .philosophy,
   .philosophy-container-desc p {
     text-align: center;
   }
+
   .philosophy-container-desc {
     position: relative;
   }
+
   .philosophy-container-desc p {
     position: absolute;
   }
+
   .philosophy-container-desc p {
     width: 250px;
   }
+
   .philosophy-container-desc .philosophy-p-one {
     bottom: 145px;
     left: 60px;
     text-align: left;
   }
+
   .philosophy-container-desc .philosophy-p-two {
     bottom: 120px;
     left: 90px;
@@ -46,18 +53,21 @@ const PhilosophyStyles = styled.div`
       bottom: 125px;
       left: 50px;
     }
+
     .philosophy-container-desc .philosophy-p-two {
       bottom: 100px;
       left: 70px;
       text-align: right;
     }
   }
+
   @media (min-width: 1131px) {
     .philosophy-container {
       display: flex;
       flex-direction: row;
     }
   }
+
   @media screen and (min-width: 800px) and (max-width: 1130px) {
     .philosophy-container {
       display: flex;

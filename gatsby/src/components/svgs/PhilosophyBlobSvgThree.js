@@ -7,6 +7,7 @@ const PhilosophyBlobSvgThreeStyles = styled.div`
   @media (max-width: 417px) {
     width: 300px;
   }
+  
   @media (min-width: 800px) {
     display: block;
   }

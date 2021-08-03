@@ -6,8 +6,8 @@ import Philosophy from './Philosophy';
 import About from './About';
 
 const MissionStyles = styled.div`
-  padding: 1rem 0 4rem;
   display: grid;
+  padding: 1rem 0 4rem;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, minmax(1fr, 500px));
 

@@ -3,12 +3,11 @@ import berkshireFont from '../assets/fonts/Berkshire_Swash/BerkshireSwash-Regula
 import libreFont from '../assets/fonts/Libre_Franklin/LibreFranklin-VariableFont_wght.ttf';
 
 const Typography = createGlobalStyle`
-    ${'' /* Berkshire */}
     @font-face {
         font-family: Berkshire;
         src: url(${berkshireFont});
     }
-    ${'' /* Libre Franklin */}
+
     @font-face {
         font-family: LibreFranklin;
         src: url(${libreFont});

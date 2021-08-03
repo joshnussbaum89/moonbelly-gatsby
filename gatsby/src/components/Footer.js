@@ -1,8 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+
+// Material Icons
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { ImPinterest2 } from 'react-icons/im';
 import { AiOutlineYoutube } from 'react-icons/ai';
-import styled from 'styled-components';
 
 // Components
 import FooterWaveSvg from './svgs/FooterWaveSvg';
@@ -23,6 +26,7 @@ const FooterStyles = styled.div`
     bottom: 0;
     width: 100%;
   }
+
   .footer-icon {
     padding: 0 1rem;
     cursor: pointer;
@@ -44,28 +48,32 @@ const Footer = () => {
         {/* TODO: */}
         {/* Add valid urls for social icons */}
         <div>
-          <a href='#top'>
+          <Link to='/'>
             <ImPinterest2 size='1.5rem' className='footer-icon' />
-          </a>
-          <a href='#top'>
+          </Link>
+          <Link to='/'>
             <AiOutlineYoutube size='1.5rem' className='footer-icon' />
-          </a>
-          <a href='#top'>
+          </Link>
+          <Link to='/'>
             <AiOutlineInstagram size='1.5rem' className='footer-icon' />
-          </a>
+          </Link>
         </div>
         <div>
           <p>
-            ♡ Made with care by
-            <a href='https://joshnussbaum.io/' target='_blank' rel='noreferrer'>
+            ♡ Made with care by{' '}
+            <Link
+              to='https://joshnussbaum.io/'
+              target='_blank'
+              rel='noreferrer'
+            >
               Josh Nussbaum
-            </a>
+            </Link>
           </p>
           <p>Copyright Moonbelly Makes {new Date().getFullYear()}</p>
         </div>
         <div>
           <p>
-            <a href='#top'>back to top</a>
+            <Link to='/'>back to top</Link>
           </p>
         </div>
         <FooterWaveSvg />

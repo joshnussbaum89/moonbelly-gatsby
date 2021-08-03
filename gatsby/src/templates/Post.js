@@ -9,12 +9,13 @@ import styled from 'styled-components';
 import SingleTag from '../components/SingleTag';
 
 const PostStyles = styled.div`
-  max-width: 800px;
-  margin: 2rem auto 8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 800px;
+  margin: 2rem auto 8rem;
   font-size: var(--medium);
+
   h2 {
     font-size: var(--variablePostTitle);
     text-shadow: var(--headerShadow);
@@ -22,17 +23,21 @@ const PostStyles = styled.div`
     padding: 2rem;
     text-align: center;
   }
+
   h3 {
     font-size: var(--large);
   }
+
   .post-container {
     width: 100%;
     margin: 2rem 0;
   }
+
   .gatsby-image-wrapper {
     border-radius: 2px;
     margin: 1rem 0;
   }
+  
   .custom-image {
     width: 100%;
   }

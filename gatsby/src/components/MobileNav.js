@@ -26,6 +26,7 @@ const MobileNavStyles = styled.div`
       }
     }
   }
+
   .mobile-nav-closed {
     display: none;
     height: 0vh;
@@ -33,6 +34,7 @@ const MobileNavStyles = styled.div`
     opacity: 0;
     transition: 0.2s;
   }
+
   .mobile-nav-opened {
     display: flex;
     justify-content: center;

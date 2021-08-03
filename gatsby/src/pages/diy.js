@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Link, graphql } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 // Components
 import DividerSvg from '../components/svgs/DividerSvg';
@@ -21,21 +21,25 @@ const DiyContainer = styled.div`
   .diy-tags h2 {
     margin: 2rem 0;
   }
+
   .diys h3 {
     margin: 2rem 0 1rem;
   }
+
   .diy-img {
     border-radius: 2px;
     width: 100%;
     margin: auto;
     display: block;
   }
+
   .read-more {
     background-color: var(--pink);
     border-radius: 2px;
     transition: 0.2s;
     padding: 0.1rem;
   }
+
   .read-more:hover {
     background-color: var(--mint);
   }
@@ -49,6 +53,7 @@ const DiyContainer = styled.div`
       margin-top: initial;
       padding-left: 3rem;
     }
+
     .diys,
     .diy-tags {
       margin: 2rem 0 8rem;
