@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { StaticImage } from 'gatsby-plugin-image';
 
 // Components
 import AboutBlobSvg from './svgs/AboutBlobSvgOne';
@@ -8,32 +9,30 @@ import AboutBlobSvgTwo from './svgs/AboutBlobSvgTwo';
 const AboutStyles = styled.div`
   .about-katrina {
     display: flex;
-  }
-
-  .about-katrina {
     flex-direction: column;
     align-items: center;
-  }
-  
-  .about-katrina {
     text-align: center;
+  }
+
+  .headshot-container {
+    position: relative;
+    .katrina-headshot {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 100;
+      top: 88px;
+      left: 80px;
+    }
   }
 
   .about-katrina-desc {
     position: relative;
-  }
-
-  .about-katrina-desc p {
-    position: absolute;
-  }
-
-  .about-katrina-desc p {
-    width: 250px;
-  }
-
-  .about-katrina-desc p {
-    bottom: 110px;
-    left: 80px;
+    p {
+      position: absolute;
+      width: 250px;
+      bottom: 110px;
+      left: 80px;
+    }
   }
 
   @media (max-width: 417px) {
@@ -49,7 +48,17 @@ const About = () => {
     <AboutStyles>
       <div className='about-katrina'>
         <h2>About Katrina</h2>
-        <AboutBlobSvg />
+        {/* Katrina Headshot */}
+        <div className='headshot-container'>
+          <AboutBlobSvg />
+          <StaticImage
+            src='../assets/images/katrina-headshot.jpg'
+            alt='Katrina in the woods'
+            className='katrina-headshot'
+            placeholder='blurred'
+            width={220}
+          />
+        </div>
         <div className='about-katrina-desc'>
           <AboutBlobSvgTwo />
           <p>

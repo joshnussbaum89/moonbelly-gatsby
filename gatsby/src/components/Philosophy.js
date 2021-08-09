@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { StaticImage } from 'gatsby-plugin-image';
 
 // Components
 import PhilosophyBlobSvgOne from './svgs/PhilosophyBlobSvgOne';
@@ -11,6 +12,22 @@ const PhilosophyStyles = styled.div`
   .philosophy,
   .philosophy-container {
     display: flex;
+  }
+
+  .philosophy-container {
+    position: relative;
+    .veggies-image,
+    .fabric-image {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 100;
+    }
+    .veggies-image {
+      top: 80px;
+    }
+    .fabric-image {
+      bottom: 85px;
+    }
   }
 
   .philosophy-container,
@@ -65,6 +82,14 @@ const PhilosophyStyles = styled.div`
     .philosophy-container {
       display: flex;
       flex-direction: row;
+      .veggies-image {
+        top: 105px;
+        left: 85px;
+      }
+      .fabric-image {
+        left: 478px;
+        bottom: 110px;
+      }
     }
   }
 
@@ -82,7 +107,16 @@ const Philosophy = () => {
       <div className='philosophy'>
         <h2>Philosophy</h2>
         <div className='philosophy-container'>
+          {/* green blob top-left */}
           <PhilosophyBlobSvgThree />
+          {/* recipe image */}
+          <StaticImage
+            src='../assets/images/veggies.jpg'
+            alt='Vegetables'
+            className='veggies-image'
+            placeholder='blurred'
+            width={180}
+          />
           <div className='philosophy-container-desc'>
             <p className='philosophy-p-one'>
               I believe in decorating my life, connecting to nature as much as
@@ -102,7 +136,16 @@ const Philosophy = () => {
             </p>
             <PhilosophyBlobSvgTwo />
           </div>
+          {/* green blob bottom-middle */}
           <PhilosophyBlobSvgFour />
+          {/* fabric image */}
+          <StaticImage
+            src='../assets/images/fabric.jpg'
+            alt='Fabric'
+            className='fabric-image'
+            placeholder='blurred'
+            width={195}
+          />
         </div>
       </div>
     </PhilosophyStyles>
